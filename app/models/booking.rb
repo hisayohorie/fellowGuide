@@ -1,5 +1,4 @@
 class Booking < ActiveRecord::Base
-  belongs_to :experiences
-  belongs_to :visitors
-  belongs_to :guides, through: :experiences
+  belongs_to :experience
+  belongs_to :visitor
 end

@@ -1,6 +1,6 @@
-class CreateExpreinces < ActiveRecord::Migration
+class CreateExperiences < ActiveRecord::Migration
   def change
-    create_table :expreinces do |t|
+    create_table :experiences do |t|
       t.datetime :date
       t.text :description
 
