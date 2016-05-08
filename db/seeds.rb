@@ -14,8 +14,6 @@
     visitor_id:i
   )
 
-
-
   # Categories_experiences.creates{
   #   catergory_id:i,
   #   experience_id:i

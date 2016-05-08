@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'experiences/index'
+
+  get 'experiences/new'
+
+  get 'experiences/create'
+
+  get 'experiences/destroy'
+
+  get 'experiences/update'
+
+  get 'experiences/edit'
+
+  get 'experiences/show'
+
   resources :guides
   resources :visitors, except:[:index]
   # The priority is based upon order of creation: first created -> highest priority.
