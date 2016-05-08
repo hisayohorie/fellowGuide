@@ -8,16 +8,16 @@
 
 10.times do |i|
   Bookings.create({
-    duration: i},
+    duration: i,
     accepted:false,
     experince_id:i,
     visitor_id:i
   })
 
-  Catergories_experiences.create({
-    catergory_id:i,
-    experience_id:i
-  })
+  # Categories_experiences.create({
+  #   catergory_id:i,
+  #   experience_id:i
+  # })
 
   Experience.create({
     date:Time.now,
@@ -27,8 +27,8 @@
 
   Guide.create({
     name: "name#{i}",
-    email:"#{i}@#{i}.#{i}"
-    password:"123456"
+    email:"#{i}@#{i}.#{i}",
+    password:"123456",
     photo:"https://robohash.org/#{i}",
     rate:5,
     city:"Toronto the Good"

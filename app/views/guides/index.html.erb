@@ -1,0 +1,11 @@
+<h1>All Guides</h1>
+
+
+<% @guides.each do |guide| %>
+ <%= link_to guide_path(guide) do %>
+   <%= guide.photo %>
+   <%= guide.name %>
+   <%= guide.city %>
+   <%= guide.email %>
+ <% end %>
+<% end %>
