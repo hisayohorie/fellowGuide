@@ -11,13 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507201440) do
+ActiveRecord::Schema.define(version: 20160508181244) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
     t.boolean  "accepted"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "experience_id"
+    t.integer  "visitor_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -26,11 +28,17 @@ ActiveRecord::Schema.define(version: 20160507201440) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "categories_experiences", id: false, force: :cascade do |t|
+    t.integer "category_id",   null: false
+    t.integer "experience_id", null: false
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.datetime "date"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "guide_id"
   end
 
   create_table "guides", force: :cascade do |t|
@@ -42,6 +50,11 @@ ActiveRecord::Schema.define(version: 20160507201440) do
     t.string   "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "guides_languages", id: false, force: :cascade do |t|
+    t.integer "guide_id",    null: false
+    t.integer "language_id", null: false
   end
 
   create_table "languages", force: :cascade do |t|
