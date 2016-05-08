@@ -7,35 +7,35 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 10.times do |i|
-  Bookings.create({
-    duration: i},
+  Booking.create(
+    duration: i,
     accepted:false,
-    experince_id:i,
+    experience_id:i,
     visitor_id:i
-  })
+  )
 
-  Catergories_experiences.create({
-    catergory_id:i,
-    experience_id:i
-  })
+  # Categories_experiences.create(
+  #   catergory_id:i,
+  #   experience_id:i
+  # )
 
-  Experience.create({
+  Experience.create(
     date:Time.now,
     description: "This is a place holder, lorem ip sum etc...",
     guide_id:i
-    })
+    )
 
-  Guide.create({
+  Guide.create(
     name: "name#{i}",
-    email:"#{i}@#{i}.#{i}"
-    password:"123456"
+    email:"#{i}@#{i}.#{i}",
+    password:"123456",
     photo:"https://robohash.org/#{i}",
     rate:5,
     city:"Toronto the Good"
-  })
-    Visitor.create({
+  )
+    Visitor.create(
       name:"name#{i}",
       email:"#{i}@#{i}.#{i}",
       password:"123456"
-    })
+    )
 end
