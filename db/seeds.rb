@@ -14,10 +14,12 @@
     visitor_id:i
   )
 
-  # Categories_experiences.create(
+
+
+  # Categories_experiences.creates{
   #   catergory_id:i,
   #   experience_id:i
-  # )
+  # }
 
   Experience.create(
     date:Time.now,
