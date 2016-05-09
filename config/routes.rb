@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  devise_for :visitors
+  root 'guides#index'
+
+
   get 'bookings/index'
 
   get 'bookings/create'
