@@ -1,6 +1,7 @@
 class GuidesController < ApplicationController
   def index
-    @guides = Guide.all
+    @guides = Guide.where("Lower(city)LIKE LOWER(?)","%#{params[:city]}%")
+
   end
 
   def new

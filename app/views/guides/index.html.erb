@@ -1,9 +1,16 @@
 <h1>All Guides</h1>
 
+      <%= form_for guides_path, method: :get, authentication: false, id: 'search-form' do %>
+      <%= label_tag :City %>
+      <%= text_field_tag :city, params[:city]%>
+      <%= label_tag "Language"%>
+      <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
+      <%= submit_tag "Search" %>
+      <% end %>
 
 <% @guides.each do |guide| %>
  <%= link_to guide_path(guide) do %>
-   <%= guide.photo %><br/>
+   <%= image_tag guide.photo %><br/>
    <%= guide.name %><br/>
    <%= guide.city %><br/>
    <%= guide.email %><br/>

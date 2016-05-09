@@ -6,12 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-10.times do |i|
+# 10.times do |i|
+Language.destroy_all
+Booking.destroy_all
+Experience.destroy_all
+Guide.destroy_all
+Visitor.destroy_all
+
   Booking.create(
-    duration: i,
+    duration: 3,
     accepted:false,
-    experience_id:i,
-    visitor_id:i
+    experience_id:4,
+    visitor_id:7
   )
 
   # Categories_experiences.creates{
@@ -22,20 +28,55 @@
   Experience.create(
     date:Time.now,
     description: "This is a place holder, lorem ip sum etc...",
-    guide_id:i
+    guide_id:5
     )
 
-  Guide.create(
-    name: "name#{i}",
-    email:"#{i}@#{i}.#{i}",
-    password:"123456",
-    photo:"https://robohash.org/#{i}",
-    rate:5,
-    city:"Toronto the Good"
+  guide1= Guide.create(
+    name: "Hisayo",
+    email:"h@h.com",
+    password:"1234",
+    photo:"http://placekitten.com/200/300",
+    rate:50,
+    city:"Toronto"
   )
-    Visitor.create(
-      name:"name#{i}",
-      email:"#{i}@#{i}.#{i}",
+
+  guide2= Guide.create(
+    name: "Kexin",
+    email:"x@x.com",
+    password:"1234",
+    photo:"http://nicenicejpg.com/200/300",
+    rate:70,
+    city:"Beijing"
+  )
+
+  guide3= Guide.create(
+    name: "Kim",
+    email:"k@k.com",
+    password:"1234",
+    photo:"http://placekitten.com/200/300",
+    rate:30,
+    city:"Toronto"
+  )
+  visitor1 = Visitor.create(
+      name:"Natalie",
+      email:"natalie@black.com",
       password:"123456"
     )
-end
+language1 = Language.create(
+lang: "Japanese"
+)
+language2 = Language.create(
+lang: "Chinese"
+)
+language3 = Language.create(
+lang: "Korean"
+)
+
+# guide1.languages.create!(lang: "Chinese")
+# guide2.languages.create!(lang: "Korean")
+# guide3.languages.create!(lang: "Japanese, lang: "")
+
+
+guide1.languages << (language1)
+guide2.languages << (language2)
+guide3.languages << ([language1, language3])
