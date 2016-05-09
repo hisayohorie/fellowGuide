@@ -33,9 +33,9 @@
     rate:5,
     city:"Toronto the Good"
   )
-    Visitor.create(
-      name:"name#{i}",
-      email:"#{i}@#{i}.#{i}",
-      password:"123456"
-    )
+    # Visitor.create(
+    #   name:"name#{i}",
+    #   email:"#{i}@#{i}.#{i}",
+    #   password:"123456"
+    # )
 end
