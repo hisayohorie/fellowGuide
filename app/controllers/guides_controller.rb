@@ -1,6 +1,8 @@
 class GuidesController < ApplicationController
   def index
-    @guides = Guide.where("Lower(city)LIKE LOWER(?)","%#{params[:city]}%")
+    languageGuide = Language.find(params[:language]).guides
+    @guides = languageGuide.where("Lower(city)LIKE LOWER(?)","%#{params[:city]}%")
+
 
   end
 
