@@ -1,2 +1,21 @@
 <h1>Experiences#create</h1>
-<p>Find me in app/views/experiences/create.html.erb</p>
+
+
+  <% form_for @experience do |f| %>
+  <% if @experience.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@experience.error.count, "error") %> prohibited this experience from being saved.</h2>
+  </div>
+    <div class ="field">
+      <%= f.label :date %>
+      <%= f.date_field :date %>
+    </div>
+    <div class ="field">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>
