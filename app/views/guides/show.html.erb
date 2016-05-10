@@ -1,3 +1,4 @@
+
 <h1><%= @guide.name %></h1>
 <%= image_tag @guide.photo %><br/>
 <p><%= @guide.rate %></p>
@@ -7,3 +8,33 @@
 <%end%>
 <h3>About Me</h3>
 <p><%= @guide.description %></p>
+
+<!-- <h1><%=@guide.name%>'s Profile</h1>
+  <div class="guideProfile">
+      <li><%= current_guide.name%></li>
+      <li><%= current_guide.email%></li>
+  </div>
+  <div class="offered_experiences">
+    <h3>Experiences</h3>
+      <% if current_guide.experiences.any? %>
+      <ul>
+      <% current_guide.experiences.map do |experience|%>
+          <li><%= experience.date %></li>
+          <li><%= experience.description %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <li>YOU GOT NO EXPERIENCES</li>
+    <% end %>
+  </div>
+  <div class ="guide_bookings">
+    <h3>Bookings</h3>
+    <% if current_guide.bookings.any? %>
+      <ul>
+        <% current_guide.bookings.map do |booking| %>
+          <li><%= booking.duration %></li>
+          <li><%= booking.accepted %></li>
+        <% end %>
+      <% end %>
+      </ul>
+  </div> -->

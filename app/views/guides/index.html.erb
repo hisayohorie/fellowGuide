@@ -1,4 +1,6 @@
 <h1>All Guides</h1>
+
+
 <div class="guide-index-search">
   <%= form_for guides_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= label_tag :City %>
@@ -10,6 +12,27 @@
 </div>
 
 
+<!-- <% if visitor_signed_in? %>
+  <div>
+    <%= link_to "Log out", destroy_visitor_session_path, method: :delete %>
+  </div>
+  <div>
+    <%= link_to "edit profile", edit_visitor_registration_path, method: :get %>
+  </div>
+
+
+<% else %>
+  <div>
+    <%= link_to "Log in", new_visitor_session_path, method: :get %>
+  </div>
+  <div>
+    <%= link_to "I forgot my password", new_visitor_password_path, method: :get %>
+  </div>
+  <div>
+    <%= link_to "sign up", new_visitor_registration_path, method: :get %>
+  </div> -->
+
+<!-- <% end %> -->
 
 <% @guides.each do |guide| %>
  <%= link_to guide_path(guide) do %>
@@ -17,6 +40,8 @@
    <%= guide.name %><br/>
    <%= guide.city %><br/>
    <%= guide.email %><br/>
+
    <%= button_to 'more info', guide_path(guide)%>
+
  <% end %>
 <% end %>
