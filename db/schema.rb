@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160510201458) do
-=======
-ActiveRecord::Schema.define(version: 20160510183013) do
->>>>>>> guide-show
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
@@ -43,13 +39,6 @@ ActiveRecord::Schema.define(version: 20160510183013) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "guide_id"
-  end
-
-  create_table "expreinces", force: :cascade do |t|
-    t.datetime "date"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "guides", force: :cascade do |t|

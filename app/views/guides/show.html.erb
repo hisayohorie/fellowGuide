@@ -9,6 +9,8 @@
 <h3>About Me</h3>
 <p><%= @guide.description %></p>
 
+<%= link_to 'Request to Book', new_guide_booking_path(@guide) %>
+
 <!-- <h1><%=@guide.name%>'s Profile</h1>
   <div class="guideProfile">
       <li><%= current_guide.name%></li>

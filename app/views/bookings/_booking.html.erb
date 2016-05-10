@@ -12,24 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.label :date %><br/>
+    <%= f.date_select :date %><br/>
   </div>
 
   <div class="field">
-    <%= f.label :time %><br>
-    <%= f.time_field :time %>
+    <%= f.label :duration %><br/>
+    <%= f.number_field :duration %><br/>
   </div>
 
-  <div class="field">
-    <%= f.label :party_size %><br>
-    <%= f.number_field :party_size %>
-  </div>
-
-  <div class="field">
-    <%= f.label :comment, :value => "Comments (Optional)" %><br>
-    <%= f.text_field :comment %>
-  </div>
 
   <div class="actions">
     <%= f.submit %>

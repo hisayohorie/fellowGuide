@@ -8,14 +8,15 @@ class BookingsController < ApplicationController
 
     if @booking.save
       flash[:notice] = "Booking requested!"
-      redirect_to booking_path(@booking)
+      redirect_to root_url
     else
       render :new
     end
   end
 
   def new
-    @booking = Booking.new(params[:id])
+    @booking = Booking.new
+    @guide = Guide.find(params[:guide_id])
   end
 
   def destroy
@@ -49,5 +50,5 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:duration, :accepted)
   end
-  
+
 end
