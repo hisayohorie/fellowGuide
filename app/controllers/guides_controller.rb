@@ -1,4 +1,6 @@
 class GuidesController < ApplicationController
+  before_action :authenticate_guide!
+
   def index
     if params[:language].present?
       languageGuide = Language.find(params[:language]).guides
@@ -6,6 +8,7 @@ class GuidesController < ApplicationController
     else
       @guides = []
     end
+
   end
 
   def new

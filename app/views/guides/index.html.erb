@@ -11,28 +11,6 @@
 
 
 
-<% if visitor_signed_in? %>
-  <div>
-    <%= link_to "Log out", destroy_visitor_session_path, method: :delete %>
-  </div>
-  <div>
-    <%= link_to "edit profile", edit_visitor_registration_path, method: :get %>
-  </div>
-
-
-<% else %>
-  <div>
-    <%= link_to "Log in", new_visitor_session_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "I forgot my password", new_visitor_password_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "sign up", new_visitor_registration_path, method: :get %>
-  </div>
-
-
-<% end %>
 <% @guides.each do |guide| %>
  <%= link_to guide_path(guide) do %>
    <%= image_tag guide.photo %><br/>
