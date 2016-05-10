@@ -34,7 +34,7 @@ Visitor.destroy_all
   guide1= Guide.create(
     name: "Hisayo",
     email:"h@h.com",
-    password:"1234",
+    password:"123456",
     photo:"http://placekitten.com/200/300",
     rate:50,
     city:"Toronto"
@@ -43,7 +43,7 @@ Visitor.destroy_all
   guide2= Guide.create(
     name: "Kexin",
     email:"x@x.com",
-    password:"1234",
+    password:"123456",
     photo:"http://nicenicejpg.com/200/300",
     rate:70,
     city:"Beijing"
@@ -52,7 +52,7 @@ Visitor.destroy_all
   guide3= Guide.create(
     name: "Kim",
     email:"k@k.com",
-    password:"1234",
+    password:"123456",
     photo:"http://placekitten.com/200/300",
     rate:30,
     city:"Toronto"

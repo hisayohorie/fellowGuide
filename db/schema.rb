@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510181720) do
+ActiveRecord::Schema.define(version: 20160510201458) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160510181720) do
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.datetime "date"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -59,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160510181720) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.text     "description"
   end
 
   add_index "guides", ["email"], name: "index_guides_on_email", unique: true

@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   devise_for :visitors, controllers: {sessions: "visitors/sessions", registrations: "visitors/registrations"}
   devise_for :guides, controllers: { sessions: "guides/sessions" }
 
-  root 'bookings#homepage'
+  root 'guides#index'
 
+  resources :guides do
+    resources :bookings
+  end
 
+  resources :experiences
 
-  resources :guides
-  #resources :visitors, except:[:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -64,32 +66,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get 'bookings/index'
-
-  get 'bookings/create'
-
-  get 'bookings/new'
-
-  get 'bookings/destroy'
-
-  get 'bookings/show'
-
-  get 'bookings/edit'
-
-  get 'bookings/update'
-
-  get 'experiences/index'
-
-  get 'experiences/new'
-
-  get 'experiences/create'
-
-  get 'experiences/destroy'
-
-  get 'experiences/update'
-
-  get 'experiences/edit'
-
-  get 'experiences/show'
 
 end
