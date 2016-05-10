@@ -7,15 +7,7 @@ class ApplicationController < ActionController::Base
 
 protected
   def configure_permitted_parameters
-    if resource_class == Visitor
-      Visitor::ParameterSanitizer.new(Visitor, :visitor, params)
-    elsif resource_class == Guide
-      Guide::ParameterSanitizer.new(Guide, :guide, params)
-    else
-      super # Use the default one
-    end
-
-    # devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
 end
