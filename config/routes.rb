@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   root 'bookings#homepage'
 
 
+  resources :guides do
+    resources :experiences
 
-  resources :guides
+  end
   #resources :visitors, except:[:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -78,18 +80,5 @@ Rails.application.routes.draw do
 
   get 'bookings/update'
 
-  get 'experiences/index'
-
-  get 'experiences/new'
-
-  get 'experiences/create'
-
-  get 'experiences/destroy'
-
-  get 'experiences/update'
-
-  get 'experiences/edit'
-
-  get 'experiences/show'
 
 end

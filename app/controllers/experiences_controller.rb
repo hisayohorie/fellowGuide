@@ -4,15 +4,14 @@ class ExperiencesController < ApplicationController
   end
 
   def new
-    @experience = Experience.new
-  end
+    @experience = Experience.new  end
 
   def create
     @experience = Experience.new(experience_params)
-
+    @guide = Guide.find(1)
     if @experience.save
       flash[:notice] = "Experience created!"
-      redirect_to experience_path(@experience)
+      redirect_to guide_experience_path(@experience)
     else
       render :new
     end
