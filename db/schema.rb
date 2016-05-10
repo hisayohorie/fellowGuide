@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510183013) do
+
+ActiveRecord::Schema.define(version: 20160510201458) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
@@ -35,7 +36,6 @@ ActiveRecord::Schema.define(version: 20160510183013) do
   end
 
   create_table "experiences", force: :cascade do |t|
-    t.datetime "date"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -66,7 +66,11 @@ ActiveRecord::Schema.define(version: 20160510183013) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+<<<<<<< HEAD
     t.string   "email",                  default: "", null: false
+=======
+    t.text     "description"
+>>>>>>> a4151d62537806edb22a177af0f712cd05d8afdd
   end
 
   add_index "guides", ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true
