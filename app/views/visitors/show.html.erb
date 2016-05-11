@@ -1,1 +1,4 @@
-<p>show page works!</p>
+
+<h1><%= @visitor.name %></h1>
+<p><%= @visitor.email%><p>
+<%= link_to 'Edit Profile', edit_visitor_registration_path(@guide) %>
