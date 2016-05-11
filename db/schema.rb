@@ -42,15 +42,9 @@ ActiveRecord::Schema.define(version: 20160511193217) do
     t.integer  "guide_id"
   end
 
-  create_table "expreinces", force: :cascade do |t|
-    t.datetime "date"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "guides", force: :cascade do |t|
     t.string   "name"
+    t.string   "email"
     t.string   "password"
     t.string   "photo"
     t.integer  "rate"
@@ -70,6 +64,7 @@ ActiveRecord::Schema.define(version: 20160511193217) do
     t.text     "description"
   end
 
+  add_index "guides", ["email"], name: "index_guides_on_email", unique: true
   add_index "guides", ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true
 
   create_table "guides_languages", id: false, force: :cascade do |t|
