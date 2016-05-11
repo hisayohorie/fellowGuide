@@ -4,8 +4,9 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @guide = Guide.find(params[:guide_id])
     @booking = Booking.new(booking_params)
-
+    @booking.guide_id = @guide.id
     if @booking.save
       flash[:notice] = "Booking requested!"
       redirect_to root_url

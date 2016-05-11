@@ -6,11 +6,12 @@ class Guide < ActiveRecord::Base
   has_many :experiences
   has_and_belongs_to_many :languages
   has_many :bookings, through: :experiences
+  has_many :bookings
 end
 
-class Guide::ParameterSanitizer < Devise::ParameterSanitizer
-  def initialize(*)
-    super
-    permit(:sign_up, keys: [:name])
-  end
-end
+# class Guide::ParameterSanitizer < Devise::ParameterSanitizer
+#   def initialize(*)
+#     super
+#     permit(:sign_up, keys: [:name])
+#   end
+# end

@@ -26,7 +26,6 @@ Visitor.destroy_all
   # }
 
   Experience.create(
-    date:Time.now,
     description: "This is a place holder, lorem ip sum etc...",
     guide_id:5
     )

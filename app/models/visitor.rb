@@ -7,11 +7,3 @@ class Visitor < ActiveRecord::Base
   has_many :bookings
   has_many :experiences, through: :bookings
 end
-
-class Visitor::ParameterSanitizer < Devise::ParameterSanitizer
-  def initialize(*)
-    super
-    permit(:sign_up, keys: [:name])
-    permit(:account_update, keys: [:name])
-  end
-end

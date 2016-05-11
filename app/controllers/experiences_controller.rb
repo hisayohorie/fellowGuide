@@ -4,14 +4,18 @@ class ExperiencesController < ApplicationController
   end
 
   def new
-    @experience = Experience.new  end
+    @guide = Guide.find(params[:guide_id])
+    @experience= @guide.experiences.build
+    # binding.pry
+  end
 
   def create
+    @guide = Guide.find(params[:guide_id])
     @experience = Experience.new(experience_params)
-    @guide = Guide.find(1)
+    @experience.guide_id = @guide.id
     if @experience.save
       flash[:notice] = "Experience created!"
-      redirect_to guide_experience_path(@experience)
+      redirect_to root_url
     else
       render :new
     end
@@ -30,7 +34,7 @@ class ExperiencesController < ApplicationController
 
     if @experience.update_attributes(experience_params)
       flash[:notice] = "Experience updated!"
-      redirect_to experience_path(@experience)
+      redirect_to root_url
     else
       render :edit
     end
@@ -46,6 +50,6 @@ class ExperiencesController < ApplicationController
 
   private
   def experience_params
-    params.require(:experience).permit(:date, :description)
+    params.require(:experience).permit(:description)
   end
 end
