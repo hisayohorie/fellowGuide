@@ -1,11 +1,12 @@
 class GuidesController < ApplicationController
-  before_action :authenticate_guide!
+  before_action :authenticate_guide!, except: [:index, :show]
+
 
   def index
     if params[:language].present?
       languageGuide = Language.find(params[:language]).guides
       @guides = languageGuide.where("Lower(city)LIKE LOWER(?)","%#{params[:city]}%")
-  
+
     else
       @guides = []
     end

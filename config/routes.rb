@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :visitors, controllers: {sessions: "visitors/sessions", registrations: "visitors/registrations"}
   devise_for :guides, controllers: { sessions: "guides/sessions" }
 
-  root 'guides#index'
+  root 'bookings#homepage'
 
   resources :guides do
     resources :bookings
@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :guides do
     resources :experiences
-
   end
 
   resources :visitors, except:[:index]
@@ -70,5 +69,6 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
 
 end

@@ -21,6 +21,17 @@
     <%= f.number_field :duration %><br/>
   </div>
 
+  <% if guide_signed_in? %>
+
+      <%= f.label "Accept this booking" %>:
+      <%= f.radio_button :accepted,true %>
+      <%= f.label :accepted, "yes" %>
+      <%= f.radio_button :accepted,false %>
+      <%= f.label :accepted, "no" %>
+
+
+  <% end %>
+
 
   <div class="actions">
     <%= f.submit %>

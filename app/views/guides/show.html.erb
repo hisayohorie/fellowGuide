@@ -8,35 +8,26 @@
 <%end%>
 <h3>About Me</h3>
 <p><%= @guide.description %></p>
-
-<%= link_to 'Request to Book', new_guide_booking_path(@guide) %>
-
-<!-- <h1><%=@guide.name%>'s Profile</h1>
-  <div class="guideProfile">
-      <li><%= current_guide.name%></li>
-      <li><%= current_guide.email%></li>
+<%if visitor_signed_in? %>
+  Choose an Experience !
+  <%@guide.experiences.each do |experience| %>
+    <div>
+      <%=link_to experience.description, new_guide_booking_path(@guide)%>
+    </div>
+  <%end%>
+  <div>
+    <%= link_to 'Request to Book', new_guide_booking_path(@guide) %>
   </div>
-  <div class="offered_experiences">
-    <h3>Experiences</h3>
-      <% if current_guide.experiences.any? %>
-      <ul>
-      <% current_guide.experiences.map do |experience|%>
-          <li><%= experience.date %></li>
-          <li><%= experience.description %></li>
-        <% end %>
-      </ul>
-    <% else %>
-      <li>YOU GOT NO EXPERIENCES</li>
+<% end %>
+
+<%if guide_signed_in? %>
+  <% @guide.bookings.each do |booking| %>
+    <% unless booking.accepted %>
+      <%=link_to "PENDING", edit_guide_booking_path(@guide,booking)%>
     <% end %>
+  <% end %>
+
+  <div>
+    <%= link_to 'Create a new Experience', new_guide_experience_path(@guide) %>
   </div>
-  <div class ="guide_bookings">
-    <h3>Bookings</h3>
-    <% if current_guide.bookings.any? %>
-      <ul>
-        <% current_guide.bookings.map do |booking| %>
-          <li><%= booking.duration %></li>
-          <li><%= booking.accepted %></li>
-        <% end %>
-      <% end %>
-      </ul>
-  </div> -->
+<% end %>
