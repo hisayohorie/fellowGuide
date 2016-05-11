@@ -70,22 +70,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-<<<<<<< HEAD
-  get 'bookings/index'
-
-  get 'bookings/create'
-
-  get 'bookings/new'
-
-  get 'bookings/destroy'
-
-  get 'bookings/show'
-
-  get 'bookings/edit'
-
-  get 'bookings/update'
-
-
-=======
->>>>>>> a4151d62537806edb22a177af0f712cd05d8afdd
 end
