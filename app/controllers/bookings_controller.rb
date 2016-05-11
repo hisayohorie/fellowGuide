@@ -7,6 +7,8 @@ class BookingsController < ApplicationController
     @guide = Guide.find(params[:guide_id])
     @booking = Booking.new(booking_params)
     @booking.guide_id = @guide.id
+    @booking.visitor_id = current_visitor.id
+    @booking.accepted = false
     if @booking.save
       flash[:notice] = "Booking requested!"
       redirect_to root_url
@@ -29,18 +31,22 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find(params[:id])
+    @guide = Guide.find(params[:guide_id])
   end
 
   def edit
+    @guide = Guide.find(params[:guide_id])
+
     @booking = Booking.find(params[:id])
   end
 
   def update
     @booking = Booking.find(params[:id])
+    @guide = Guide.find(params[:guide_id])
 
     if @booking.update_attributes(booking_params)
       flash[:notice] = "Booking updated!"
-      redirect_to booking_path(@booking)
+      redirect_to guide_path(@guide)
     else
       render :edit
     end
