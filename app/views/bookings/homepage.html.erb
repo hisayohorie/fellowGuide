@@ -1,20 +1,3 @@
-<% if visitor_signed_in? %>
-  <div>
-    <%= link_to "Log out VISITOR", destroy_visitor_session_path, method: :delete %>
-  </div>
-  <div>
-    <%= link_to "edit profile VISITOR", edit_visitor_registration_path, method: :get %>
-  </div>
-<% else %>
-  <div>
-    <%= link_to "Log in VISITOR", new_visitor_session_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "I forgot my password VISITOR", new_visitor_password_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "sign up VISITOR", new_visitor_registration_path, method: :get %>
-  </div>
-<% end %>
+
 
 Right now you can log in as both at the same time, and can be logged out with a single logout click
