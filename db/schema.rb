@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511193217) do
+ActiveRecord::Schema.define(version: 20160511200100) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 20160511193217) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "email",                  default: "", null: false
     t.text     "description"
   end
 
