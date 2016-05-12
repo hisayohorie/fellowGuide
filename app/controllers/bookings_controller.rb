@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
     @booking.guide_id = @guide.id
     @booking.visitor_id = current_visitor.id
     @booking.accepted = false
-    binding.pry
     if @booking.save
       flash[:notice] = "Booking requested!"
       redirect_to root_url

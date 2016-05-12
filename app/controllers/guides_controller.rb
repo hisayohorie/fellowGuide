@@ -18,7 +18,13 @@ class GuidesController < ApplicationController
   end
 
   def show
-    @guide = Guide.find(params[:id])
+    if guide_signed_in?
+      @guide = Guide.find(current_guide.id)
+    elsif visitor_signed_in?
+      @guide = Guide.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def create

@@ -16,22 +16,5 @@
     <%= link_to "sign up VISITOR", new_visitor_registration_path, method: :get %>
   </div>
 <% end %>
-<% if guide_signed_in? %>
-  <div>
-    <%= link_to "Log out GUIDE", destroy_guide_session_path, method: :delete %>
-  </div>
-  <div>
-    <%= link_to "edit profile GUIDE", edit_guide_registration_path, method: :get %>
-  </div>
-<% else %>
-  <div>
-    <%= link_to "Log in GUIDE", new_guide_session_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "I forgot my password GUIDE", new_guide_password_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "sign up GUIDE", new_guide_registration_path, method: :get %>
-  </div>
-<% end %>
+
 Right now you can log in as both at the same time, and can be logged out with a single logout click
