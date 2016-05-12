@@ -10,7 +10,9 @@
       </ul>
     </div>
   <% end %>
-
+  <div>
+    <%= f.hidden_field :experience_id, value: @experience_id %>
+  </div>
   <div class="field">
     <%= f.label :date %><br/>
     <%= f.date_select :date %><br/>
