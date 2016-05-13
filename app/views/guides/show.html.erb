@@ -1,20 +1,21 @@
 
-    <h1><%= @guide.name %></h1>
-    <%= image_tag @guide.photo %><br/>
-    <p><%= @guide.rate %></p>
-    <p><%= @guide.city %></p>
-    <% @guide.languages.each do |language|%>
-    <p><%= language.lang %></p>
-    <%end%>
-    <h3>About Me</h3>
-    <p><%= @guide.description %></p>
-    <%if visitor_signed_in? %>
-    Choose an Experience !
-    <%@guide.experiences.each do |experience| %>
-      <div>
-        <%=link_to experience.description, new_guide_booking_path(@guide, experience_id:experience.id)%>
-      </div>
-    <%end%>
+<h1><%= @guide.name %></h1>
+<div class ="profilePic">
+<%= image_tag @guide.photo.thumb %><br/>
+</div>
+<p><%= @guide.rate %></p>
+<p><%= @guide.city %></p>
+<% @guide.languages.each do |language|%>
+<p><%= language.lang %></p>
+<%end%>
+<h3>About Me</h3>
+
+
+<p><%= @guide.description %></p>
+<%if visitor_signed_in? %>
+  Choose an Experience !
+  <%@guide.experiences.each do |experience| %>
+
     <div>
       <%= link_to 'Request to Book', new_guide_booking_path(@guide) %>
     </div>
