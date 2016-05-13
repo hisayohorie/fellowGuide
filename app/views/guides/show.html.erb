@@ -15,7 +15,6 @@
 <%if visitor_signed_in? %>
   Choose an Experience !
   <%@guide.experiences.each do |experience| %>
-
     <div>
       <%= link_to 'Request to Book', new_guide_booking_path(@guide) %>
     </div>
@@ -32,3 +31,4 @@
       <%= link_to 'Create a new Experience', new_guide_experience_path(@guide) %>
     </div>
     <% end %>
+<% end %>
