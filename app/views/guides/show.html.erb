@@ -1,4 +1,4 @@
-
+<div class = "guide_profile">
 <h1><%= @guide.name %></h1>
 <div class ="profilePic">
 <%= image_tag @guide.photo.thumb %><br/>
@@ -30,5 +30,7 @@
 
     <div>
       <%= link_to 'Create a new Experience', new_guide_experience_path(@guide) %>
+    <% end %>
     </div>
     <% end %>
+</div>
