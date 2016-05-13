@@ -21,6 +21,7 @@ class GuidesController < ApplicationController
     if guide_signed_in?
       @guide = Guide.find(current_guide.id)
     elsif visitor_signed_in?
+      @booking= Booking.new
       @guide = Guide.find(params[:id])
     else
       redirect_to root_path
