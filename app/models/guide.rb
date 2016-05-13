@@ -11,11 +11,11 @@ class Guide < ActiveRecord::Base
   has_many :bookings
 end
 
-class Guide::ParameterSanitizer < Devise::ParameterSanitizer
-  def initialize(*)
-    super
-    # permit(:sign_up, keys: [:name])
-    permit(:sign_up, keys: [:name, :photo])
-    permit(:account_update, keys: [:name])
-  end
-end
+# class Guide::ParameterSanitizer < Devise::ParameterSanitizer
+#   def initialize(*)
+#     super
+#     # permit(:sign_up, keys: [:name])
+#     permit(:sign_up, keys: [:name, :photo])
+#     permit(:account_update, keys: [:name])
+#   end
+# end
