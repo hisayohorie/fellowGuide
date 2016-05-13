@@ -1,6 +1,8 @@
 class Guide < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  mount_uploader :photo, PhotoUploader
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :experiences
@@ -12,6 +14,8 @@ end
 # class Guide::ParameterSanitizer < Devise::ParameterSanitizer
 #   def initialize(*)
 #     super
-#     permit(:sign_up, keys: [:name])
+#     # permit(:sign_up, keys: [:name])
+#     permit(:sign_up, keys: [:name, :photo])
+#     permit(:account_update, keys: [:name])
 #   end
 # end

@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
     @booking.guide_id = @guide.id
     @booking.visitor_id = current_visitor.id
     @booking.accepted = false
-    binding.pry
     if @booking.save
       flash[:notice] = "Booking requested!"
       redirect_to root_url
@@ -56,7 +55,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:duration, :accepted, :experience_id)
+    params.require(:booking).permit(:duration, :accepted, :experience_id,:date)
   end
 
   def experience_params

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :visitors, controllers: {sessions: "visitors/sessions", registrations: "visitors/registrations"}
-  devise_for :guides, controllers: { sessions: "guides/sessions" }
+  devise_for :guides, controllers: { sessions: "guides/sessions", registrations: "guides/registrations" }
 
-  root 'bookings#homepage'
+  root 'guides#index'
 
   resources :guides do
     resources :bookings

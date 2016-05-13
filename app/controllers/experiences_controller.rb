@@ -50,6 +50,6 @@ class ExperiencesController < ApplicationController
 
   private
   def experience_params
-    params.require(:experience).permit(:description)
+    params.require(:experience).permit(:description, :name)
   end
 end

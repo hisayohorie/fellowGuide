@@ -27,7 +27,7 @@
 
   <div class="fields">
     <%= f.label :photo %><br/>
-    <%= f.text_field :photo %>
+    <%= f.file_field :photo %>
   </div>
   <div class="fields">
     <%= f.label :rate %><br/>
@@ -36,6 +36,10 @@
   <div class="fields">
     <%= f.label :city %><br/>
     <%= f.text_field :city %>
+  </div>
+  <div class= "field">
+  <%= f.label :languages %>
+  <%= f.select_tag :languages, options_from_collection_for_select(Language.all, "id", "lang") %>
   </div>
   <div class="actions">
     <%= f.submit %>
