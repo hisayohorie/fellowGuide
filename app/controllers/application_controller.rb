@@ -12,10 +12,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
-protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update) do |user|
+      user.permit(:name, :email, :password, :password_confirmation, :current_password, :city, :rate,:photo, :description)
+   # Your block here.
   end
+ end
+  #   devise_parameter_sanitizer.for(:account_update) { |u|
+  #     u.permit(:name, :email, :password, :password_confirmation, :current_password, :city, :rate,:photo, :description)
+  #   }
+  # end
 
 # helper_method :current_visitor
 

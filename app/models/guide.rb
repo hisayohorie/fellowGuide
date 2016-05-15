@@ -9,6 +9,20 @@ class Guide < ActiveRecord::Base
   has_and_belongs_to_many :languages
   has_many :bookings, through: :experiences
   has_many :bookings
+
+  def availability_on_date(day)
+  # THIS CLASS TAKES THE DAY OF THE MONTH AND RETURNS THE GUIDE AVAILABILITY
+  # NEED TO ADD A CHECK FOR MONTH/YEAR UNIQNESS ON NEXT ITERATION
+
+    availableArray = Array.new(24,true)
+    self.bookings.each do |booking|
+      if booking.date.day == day
+        booking.duration.times{|i| availableArray[booking.date.hour + i] = false}
+      end
+    end
+  end
+
+
 end
 
 # class Guide::ParameterSanitizer < Devise::ParameterSanitizer
