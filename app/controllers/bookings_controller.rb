@@ -1,6 +1,20 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.all
+
+
+    @guide = Guide.find(params[:guide_id])
+    @bookings = @guide.bookings
+
+# render :json => items.to_json(:only => [:id, :name]),
+
+    respond_to do |format|
+      format.html
+      format.json do
+        # this is in answer to bookings page to display availablity
+        render json: @bookings.to_json(only: [:date, :duration])
+      end
+
+    end
   end
 
   def create
@@ -33,6 +47,8 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @guide = Guide.find(params[:guide_id])
+
+
   end
 
   def edit

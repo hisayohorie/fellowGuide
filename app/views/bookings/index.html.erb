@@ -1,4 +1,7 @@
-<h1>Bookings#index</h1>
+<h1>Bookings for <%=@guide.email %> </h1>
 
-<% render 'booking'%>
+<%@bookings.each do |booking|%>
+
+  <%= booking.id %> <br>
+<% end %>
 <%= link_to "Back", root_path %>
