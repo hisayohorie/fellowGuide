@@ -1,53 +1,66 @@
-<h1>All Guides</h1>
-
-
-<div class="guide-index-search">
-  <%= form_for guides_path, method: :get, authentication: false, id: 'search-form' do %>
-  <%= label_tag :City %>
-  <%= text_field_tag :city, params[:city]%>
-  <%= label_tag "Language"%>
-  <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
-  <%= submit_tag "Search" %>
+<nav>
+  <ul>
+    <li><b>GUIDE:</b></li>
+  <% if guide_signed_in? %>
+    <div class = "guide_nav">
+      <li><%= link_to "LOG OUT", destroy_guide_session_path, method: :delete %></li>
+    </div>
+    <div class = "guide_nav">
+      <li><%= link_to "EDIT PROFILE", edit_guide_registration_path, method: :get %></li>
+    </div>
+  <% else %>
+    <div class = "guide_nav">
+      <li><%= link_to "LOG IN", new_guide_session_path, method: :get %></li>
+    </div>
+    <!-- <div>
+      <li><%= link_to "I forgot my password GUIDE", new_guide_password_path, method: :get %></li>
+    </div> -->
+    <div class = "guide_nav">
+      <li><%= link_to "SIGN UP", new_guide_registration_path, method: :get %></li>
+    </div>
   <% end %>
+  <div class = "empty_block"></div>
+    <li><b>VISITOR:</b></li>
+  <% if visitor_signed_in? %>
+  <div class = "visitor_nav">
+    <li><%= link_to "LOG OUT", destroy_visitor_session_path, method: :delete %></li>
+  </div>
+  <div class = "visitor_nav">
+    <li><%= link_to "EDIT PROFILE", edit_visitor_registration_path, method: :get %></li>
+  </div>
+  <% else %>
+  <div class = "visitor_nav">
+    <li><%= link_to "LOG IN", new_visitor_session_path, method: :get %></li>
+  </div>
+  <!-- <div>
+    <li><%= link_to "I forgot my password VISITOR", new_visitor_password_path, method: :get %></li>
+  </div> -->
+  <div class = "visitor_nav">
+    <li><%= link_to "SIGN UP", new_visitor_registration_path, method: :get %></li>
+  </div>
+  <% end %>
+  </ul>
+</nav>
+
+<div class="image">
+  <img src="fellow.jpeg">
+
+<div class = "tag_line">
+  <p>You are not alone.</p>
+  <p>Find your own fellow anywhere, anytime.</p>
 </div>
 
-<% if guide_signed_in? %>
-  <div>
-    <%= link_to "Log out GUIDE", destroy_guide_session_path, method: :delete %>
-  </div>
-  <div>
-    <%= link_to "edit profile GUIDE", edit_guide_registration_path, method: :get %>
-  </div>
-<% else %>
-  <div>
-    <%= link_to "Log in GUIDE", new_guide_session_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "I forgot my password GUIDE", new_guide_password_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "sign up GUIDE", new_guide_registration_path, method: :get %>
-  </div>
-<% end %>
+<div class="guide-index-search">
+    <%= form_for guides_path, method: :get, authentication: false, id: 'search-form' do %>
+    <p><%= label_tag :City %></p>
+    <%= text_field_tag :city, params[:city]%>
+    <p><%= label_tag "Language"%></p>
+    <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
+    <%= submit_tag "Search" %>
+    <% end %>
+</div>
+</div>
 
-<% if visitor_signed_in? %>
-  <div>
-    <%= link_to "Log out VISITOR", destroy_visitor_session_path, method: :delete %>
-  </div>
-  <div>
-    <%= link_to "edit profile VISITOR", edit_visitor_registration_path, method: :get %>
-  </div>
-<% else %>
-  <div>
-    <%= link_to "Log in VISITOR", new_visitor_session_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "I forgot my password VISITOR", new_visitor_password_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "sign up VISITOR", new_visitor_registration_path, method: :get %>
-  </div>
-<% end %>
 
 
 <!-- <% if visitor_signed_in? %>
