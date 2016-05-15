@@ -1,42 +1,48 @@
-<%= form_for ([@guide, @booking]) do |f| %>
-  <% if @booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+<div id="booking-page" data-guide-id = "<%= @guide.id %>">
+  <div id= "availabiltiy-bar">
+  </div>
+  <div id= "booking-form">
+  <%= form_for ([@guide, @booking]) do |f| %>
+    <% if @booking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
 
-      <ul>
-        <% @booking.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @booking.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div>
+      <%= f.hidden_field :experience_id, value: @experience_id %>
     </div>
+    <div class="field">
+      <%= f.label :date %><br/>
+      <%= f.datetime_select:date, discard_minute: true%><br/>
+    </div>
+
+    <div class="field">
+      <%= f.label :duration %><br/>
+      <%= f.number_field :duration %><br/>
+    </div>
+
+    <% if guide_signed_in? %>
+
+        <%= f.label "Accept this booking" %>:
+        <%= f.radio_button :accepted,true %>
+        <%= f.label :accepted, "yes" %>
+        <%= f.radio_button :accepted,false %>
+        <%= f.label :accepted, "no" %>
+
+
+    <% end %>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
   <% end %>
-  <div>
-    <%= f.hidden_field :experience_id, value: @experience_id %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br/>
-    <%= f.date_select :date %><br/>
-  </div>
-
-  <div class="field">
-    <%= f.label :duration %><br/>
-    <%= f.number_field :duration %><br/>
-  </div>
-
-  <% if guide_signed_in? %>
-
-      <%= f.label "Accept this booking" %>:
-      <%= f.radio_button :accepted,true %>
-      <%= f.label :accepted, "yes" %>
-      <%= f.radio_button :accepted,false %>
-      <%= f.label :accepted, "no" %>
-
-
-  <% end %>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-<% end %>
+</div>
