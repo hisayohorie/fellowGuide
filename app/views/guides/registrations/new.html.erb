@@ -4,8 +4,18 @@
   <%= devise_error_messages! %>
 
   <div class="fields">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
+    <%= f.label :photo %><br/>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name %>
   </div>
 
   <div class="field">
@@ -37,8 +47,8 @@
   </div>
 
   <div class="fields">
-    <%= f.label :photo %><br/>
-    <%= f.file_field :photo %>
+    <%= f.label :transportation %><br/>
+    <%= f.text_field :transportation %>
   </div>
 
   <div class= "field">

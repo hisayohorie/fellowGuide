@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516210117) do
+ActiveRecord::Schema.define(version: 20160516215333) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20160516210117) do
     t.text     "description"
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "traspotation"
+    t.string   "transportation"
   end
 
   add_index "guides", ["reset_password_token"], name: "index_guides_on_reset_password_token", unique: true

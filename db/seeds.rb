@@ -31,30 +31,36 @@ Visitor.destroy_all
     )
 
   guide1= Guide.create(
-    name: "Hisayo",
+    first_name: "Hisayo",
+    last_name: "E",
     email:"h@h.com",
     password:"123456",
     photo:"http://placekitten.com/200/300",
     rate:50,
-    city:"Toronto"
+    city:"Toronto",
+    transportation: "car"
   )
 
   guide2= Guide.create(
-    name: "Kexin",
+    first_name: "Kexin",
+    last_name: "Wu",
     email:"x@x.com",
     password:"123456",
     photo:"http://nicenicejpg.com/200/300",
     rate:70,
-    city:"Beijing"
+    city:"Beijing",
+    transportation: "car"
   )
 
   guide3= Guide.create(
-    name: "Kim",
+    first_name: "Kim",
+    last_name: "Erin",
     email:"k@k.com",
     password:"123456",
     photo:"http://placekitten.com/200/300",
     rate:30,
-    city:"Toronto"
+    city:"Toronto",
+    transportation: "car"
   )
 
 
@@ -76,3 +82,15 @@ lang: "Korean"
 guide1.languages << (language1)
 guide2.languages << (language2)
 guide3.languages << ([language1, language3])
+
+category1 = Category.create!(
+name: "Newcommer Special"
+)
+
+category2 = Category.create!(
+name: "Customized Tour"
+)
+
+category3 = Category.create!(
+name: "Guide Designed Tour"
+)
