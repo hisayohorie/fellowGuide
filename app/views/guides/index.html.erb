@@ -6,7 +6,7 @@
       <li><%= link_to "LOG OUT", destroy_guide_session_path, method: :delete %></li>
     </div>
     <div class = "guide_nav">
-      <li><%= link_to "EDIT PROFILE", edit_guide_registration_path, method: :get %></li>
+      <li><%= link_to "EDIT PROFILE", edit_guide_path(current_guide), method: :get %></li>
     </div>
   <% else %>
     <div class = "guide_nav">
