@@ -37,7 +37,7 @@ class GuidesController < ApplicationController
 
   def update
     @guide = Guide.find(params[:id])
-    if @guide.update_attribute(guide_params)
+    if @guide.update_attributes(guide_params)
       flash[:notice] = "your profile is updated."
       redirect_to guide_path(@guide)
     else
