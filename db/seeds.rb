@@ -57,16 +57,18 @@ Visitor.destroy_all
     city:"Toronto"
   )
 
-
-language1 = Language.create(
-lang: "Japanese"
-)
-language2 = Language.create(
-lang: "Chinese"
-)
-language3 = Language.create(
-lang: "Korean"
-)
+["Japanese", "Chinese", "Korean"].each do |language|
+  Language.create!({lang: language})
+end
+# language1 = Language.create(
+# lang: "Japanese"
+# )
+# language2 = Language.create(
+# lang: "Chinese"
+# )
+# language3 = Language.create(
+# lang: "Korean"
+# )
 
 # guide1.languages.create!(lang: "Chinese")
 # guide2.languages.create!(lang: "Korean")
