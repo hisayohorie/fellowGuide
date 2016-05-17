@@ -26,21 +26,10 @@ class GuidesController < ApplicationController
     else
 
       @guide = Guide.find(params[:id])
-<<<<<<< HEAD
     end
   end
 
-  def create
-    @guide = Guide.new(guide_params)
-    if @guide.save
-      flash[:notice]= "you are a guide now"
-      redirect_to guide_path(@guide)
-    else
-      render :new
-=======
->>>>>>> a6967ff2b375f64556583e1104688a911997edef
-    end
-  end
+  
 
   # def create
   #   @guide = Guide.new(guide_params)
