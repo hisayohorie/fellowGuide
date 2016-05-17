@@ -7,8 +7,8 @@
   <%= text_field_tag :city, params[:city]%>
   <%= label_tag "Language"%>
   <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
-  <%= label_tag "Rate" %>
-  <%= range_field(:rate, method: :get, in: 1..100, step: 1) %>
+  <%= label_tag :rate, "Rate", id: 'rate_label' %>
+  <%= range_field_tag(:rate, 50, in: 1..100, step: 1) %>
   <%= collection_radio_buttons("", :category_id, Category.all, :id, :name) %>
 
 
