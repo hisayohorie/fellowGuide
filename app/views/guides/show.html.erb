@@ -1,4 +1,5 @@
 
+
 <h1><%= @guide.first_name %><%= @guide.last_name %></h1>
 <div class ="profilePic">
 <%= image_tag @guide.photo.thumb %><br/>
@@ -18,7 +19,6 @@
 
 <%if visitor_signed_in? %>
   Choose an Experience !
-
   <%@guide.experiences.each do |experience| %>
     <div>
       <%= link_to experience.name, new_guide_booking_path(@guide, experience_id: experience.id) %>
@@ -27,6 +27,7 @@
 
 <%end%>
 <%if guide_signed_in? %>
+
   <% @guide.bookings.each do |booking| %>
     <% unless booking.accepted %>
       <%=link_to "PENDING - #{booking.experience.name} - #{booking.date}", edit_guide_booking_path(@guide,booking) %>

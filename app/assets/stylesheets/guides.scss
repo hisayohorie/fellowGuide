@@ -1,3 +1,147 @@
 // Place all the styles related to the guides controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+$light_blue: #9ad3de;
+$darker_blue: #89bdd3;
+$darker_grey: #c9c9c9;
+$light_grey: #e3e3e3;
+$light-grey_trans: rgba(227, 227, 227, 0.5);
+$light_blue_trans: rgba(154, 211, 222, 0.5);
+$pink: #fd5c63;
+$pink_trans: rgba(253, 92, 99, 0.6);
+
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+nav {
+  ul {
+    position: fixed;
+    margin-top: -10rem;
+    padding: 1rem 1rem 1.5rem 0.5rem;
+    background-color: $light_blue;
+
+    list-style: none;
+    display: inline-flex;
+    justify-content:center;
+    width: 100%;
+    z-index: 999;
+  }
+
+  li {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    letter-spacing: 5px;
+      }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: white;
+  }
+}
+.guide_nav {
+  border: 1px solid white;
+}
+
+.empty_block {
+  width: 30%;
+}
+
+.visitor_nav {
+  border: 1px solid white;
+}
+
+.image {
+
+  line-height: 0;
+  position: relative;
+  width: 100%;
+
+  img {
+    height: auto;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    margin-top: -10rem;
+  }
+
+  .tag_line{
+    background-color: $light-grey_trans;
+    height: 10rem;
+    text-align: center;
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    z-index: 900;
+    width: 100%;
+    p{
+      color: $pink;
+      padding: 1rem;
+      position: relative;
+      letter-spacing: 5px;
+      font-weight: bolder;
+      font-size: 1.5rem;
+    }
+  }
+
+  .guide-index-search {
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    p {
+      color: white;
+      line-height: 2em;
+      padding: 1em 1.5em;
+      font-size: 1.2rem;
+      position: relative;
+      display: inline-flex;
+    }
+  }
+
+}
+
+//
+// body {
+//   background-color: $darker_grey;
+//   margin-top: 10rem;
+//   letter-spacing: 5px;
+//   color: white;
+//
+// }
+.guide_signup,
+.guide_login {
+  background-color: $light_blue;
+  width: 33%;
+  padding: 3rem;
+  text-align: center;
+  left: 50%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  .field {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .label {
+    margin-top: 10px;
+  }
+}

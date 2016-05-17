@@ -1,3 +1,32 @@
 // Place all the styles related to the visitors controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: $darker_grey;
+  margin-top: 10rem;
+  letter-spacing: 5px;
+  color: white;
+
+}
+.visitor_login,
+.visitor_signup{
+  background-color: $pink;
+  width: 33%;
+  padding: 3rem;
+  text-align: center;
+  left: 50%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  .field {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+  .label {
+    margin-top: 10px;
+
+  }
+}
