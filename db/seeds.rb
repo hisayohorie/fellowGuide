@@ -12,6 +12,7 @@ Booking.destroy_all
 Experience.destroy_all
 Guide.destroy_all
 Visitor.destroy_all
+Category.destroy_all
 
   Booking.create(
     duration: 3,
