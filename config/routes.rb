@@ -3,13 +3,10 @@ Rails.application.routes.draw do
   devise_for :visitors, controllers: {sessions: "visitors/sessions", registrations: "visitors/registrations"}
   devise_for :guides, controllers: { sessions: "guides/sessions", registrations: "guides/registrations" }
 
-  root 'guides#index'
 
-  resources :guides do
+  root 'bookings#homepage'
+  resources :guides, only: [:index, :show] do
     resources :bookings
-  end
-
-  resources :guides do
     resources :experiences
   end
 

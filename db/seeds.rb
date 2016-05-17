@@ -64,24 +64,22 @@ Visitor.destroy_all
   )
 
 
-language1 = Language.create(
-lang: "Japanese"
-)
-language2 = Language.create(
-lang: "Chinese"
-)
-language3 = Language.create(
-lang: "Korean"
-)
+  ["Arabic", "Bengali", "Cantonese", "Dutch", "English", "French", "German","Gujurati","Hindi","Indonesian",
+    "Italian","Japanese", "Javanese", "Jin", "Kannada", "Korean",
+   "Mandarin",  "Malay", "Marathi","Pashto", "Persian", "Polish","Portuguese","Punjabi",
+    "Russian" ,"Spanish", "Southern Min", "Thai", "Tamil", "Telugu","Turkish",
+    "Urdu", "Vietnamese", "Xiang"].each do |language|
+    Language.create!({lang: language})
+  end
 
-# guide1.languages.create!(lang: "Chinese")
+#guide1.languages.create!(lang: "Chinese")
 # guide2.languages.create!(lang: "Korean")
 # guide3.languages.create!(lang: "Japanese, lang: "")
 
 
-guide1.languages << (language1)
-guide2.languages << (language2)
-guide3.languages << ([language1, language3])
+ guide1.languages << (Language.find_by(lang:"Korean"))
+# guide2.languages << (language2)
+# guide3.languages << ([language1, language3])
 
 category1 = Category.create!(
 name: "Newcommer Special"

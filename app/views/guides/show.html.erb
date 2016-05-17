@@ -3,12 +3,13 @@
 <div class ="profilePic">
 <%= image_tag @guide.photo.thumb %><br/>
 </div>
+<h3>About Me</h3>
 <p><%= @guide.rate %></p>
 <p><%= @guide.city %></p>
 <% @guide.languages.each do |language|%>
 <p><%= language.lang %></p>
 <%end%>
-<h3>About Me</h3>
+
 
 
 <p><%= @guide.description %></p>
@@ -27,8 +28,10 @@
     <% unless booking.accepted %>
       <%=link_to "PENDING - #{booking.experience.name} - #{booking.date}", edit_guide_booking_path(@guide,booking) %>
     <% end %>
+
   <% end %>
   <div>
     <%= link_to 'Create a new Experience', new_guide_experience_path(@guide) %>
   </div>
+
 <% end %>
