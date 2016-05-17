@@ -3,16 +3,19 @@
 <div class ="profilePic">
 <%= image_tag @guide.photo.thumb %><br/>
 </div>
-<h3>About Me</h3>
-<p><%= @guide.rate %></p>
-<p><%= @guide.city %></p>
+
+<p>Rate: $<%= @guide.rate %>/hr</p>
+<p>City: <%= @guide.city %></p>
+
 <% @guide.languages.each do |language|%>
-<p><%= language.lang %></p>
+<p>Language: <%= language.lang %></p>
 <%end%>
 
-
+<h3>About Me</h3>
 
 <p><%= @guide.description %></p>
+<p>Transpotation: <%= @guide.transportation %></p>
+
 <%if visitor_signed_in? %>
   Choose an Experience !
   <%@guide.experiences.each do |experience| %>
@@ -33,6 +36,9 @@
   <% end %>
   <div>
     <%= link_to 'Create a new Experience', new_guide_experience_path(@guide) %>
+  </div>
+  <div>
+    <%= link_to 'Edit Profile', edit_guide_registration_path, method: :get %>
   </div>
 
 <% end %>
