@@ -26,7 +26,6 @@
 
 <%end%>
 <%if guide_signed_in? %>
-<%=binding.pry%>
 
   <% @guide.bookings.each do |booking| %>
     <% unless booking.accepted %>
