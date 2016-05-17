@@ -43,7 +43,7 @@
 
   <div class= "field">
   <%= f.label :languages %>
-  <%= f.select :languages, options_from_collection_for_select(Language.all, "id", "lang"),{}, multiple: true %>
+  <%= f.select :languages, options_from_collection_for_select(Language.all, "id", "lang"),{}, { :multiple => true, :size =>10 }  %>
   </div>
 
   <div class="actions">
