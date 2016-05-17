@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
 
 protected
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:id, :name, :email, :password, :password_confirmation, :photo, :rate, :city])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name,:last_name,:id, :name, :email, :password, :password_confirmation, :photo, :rate, :city])
+
   end
 
 # helper_method :current_visitor

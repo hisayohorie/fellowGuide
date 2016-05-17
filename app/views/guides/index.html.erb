@@ -75,7 +75,7 @@
 <% @guides.each do |guide| %>
  <%= link_to guide_path(guide) do %>
    <%= image_tag guide.photo %><br/>
-   <%= guide.name %><br/>
+   <%= guide.first_name %><%= guide.last_name %><br/>
    <%= guide.city %><br/>
    <%= guide.email %><br/>
 
