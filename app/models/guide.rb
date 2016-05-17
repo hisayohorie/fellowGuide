@@ -6,7 +6,7 @@ class Guide < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :first_name, :last_name, :transportation, :photo, :city, :rate, presence:true
+  validates :first_name, :last_name, :transportation, :city, :rate, presence:true
   has_many :experiences
   has_and_belongs_to_many :languages
   has_many :bookings, through: :experiences

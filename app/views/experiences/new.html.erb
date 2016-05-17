@@ -12,13 +12,13 @@
   </div>
 
   <div class ="field">
-    <%= f.label :category %>
-    <%= f.select_tag :category, options_from_collection_for_select(Category.all, "id", "name") %>
+    <%= f.label :categories %>
+    <%= f.select :categories, options_from_collection_for_select(Category.all, "id", "name") %>
   </div>
 
   <div class ="field">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_area :description %>
   </div>
 
   <div>
