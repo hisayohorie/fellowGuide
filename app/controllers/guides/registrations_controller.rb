@@ -45,9 +45,16 @@ class Guides::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
+<<<<<<< HEAD
     devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :email, :password, :password_confirmation, :city, :rate,:photo, :transportation])
+=======
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation, :city, :rate,:photo, {language_ids: []}, :description])
+>>>>>>> view-guide-registration
   end
 
+  def configure_account_update_params
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :city, :rate,:photo, {language_ids: []},:description])
+  end
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :password_confirmation, :city, :rate,:photo, :description])

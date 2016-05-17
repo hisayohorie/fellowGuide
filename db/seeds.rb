@@ -64,15 +64,13 @@ Visitor.destroy_all
   )
 
 
-language1 = Language.create(
-lang: "Japanese"
-)
-language2 = Language.create(
-lang: "Chinese"
-)
-language3 = Language.create(
-lang: "Korean"
-)
+  ["Arabic", "Bengali", "Cantonese", "Dutch", "English", "French", "German","Gujurati","Hindi","Indonesian",
+    "Italian","Japanese", "Javanese", "Jin", "Kannada", "Korean",
+   "Mandarin",  "Malay", "Marathi","Pashto", "Persian", "Polish","Portuguese","Punjabi",
+    "Russian" ,"Spanish", "Southern Min", "Thai", "Tamil", "Telugu","Turkish",
+    "Urdu", "Vietnamese", "Xiang"].each do |language|
+    Language.create!({lang: language})
+  end
 
 # guide1.languages.create!(lang: "Chinese")
 # guide2.languages.create!(lang: "Korean")
