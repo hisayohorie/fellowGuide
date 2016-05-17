@@ -24,6 +24,7 @@ class GuidesController < ApplicationController
       @booking= Booking.new
       @guide = Guide.find(params[:id])
     else
+
       @guide = Guide.find(params[:id])
     end
   end

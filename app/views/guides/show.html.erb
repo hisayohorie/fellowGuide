@@ -15,7 +15,6 @@
 <p><%= @guide.description %></p>
 <%if visitor_signed_in? %>
   Choose an Experience !
-
   <%@guide.experiences.each do |experience| %>
     <div>
       <%= link_to experience.name, new_guide_booking_path(@guide, experience_id: experience.id) %>
@@ -24,6 +23,8 @@
 
 <%end%>
 <%if guide_signed_in? %>
+<%=binding.pry%>
+
   <% @guide.bookings.each do |booking| %>
     <% unless booking.accepted %>
       <%=link_to "PENDING - #{booking.experience.name} - #{booking.date}", edit_guide_booking_path(@guide,booking) %>
