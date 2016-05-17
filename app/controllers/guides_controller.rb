@@ -28,7 +28,6 @@ class GuidesController < ApplicationController
     end
   end
 
-<<<<<<< HEAD
   def create
     @guide = Guide.new(guide_params)
     if @guide.save
@@ -58,7 +57,7 @@ class GuidesController < ApplicationController
     @guide.destroy
     redirect_to root_path
   end
-=======
+
   # def create
   #   @guide = Guide.new(guide_params)
   #   if @guide.save

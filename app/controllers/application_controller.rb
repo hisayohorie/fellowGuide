@@ -13,15 +13,9 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-<<<<<<< HEAD
-    devise_parameter_sanitizer.permit(:account_update) do |user|
-      user.permit(:name, :email, :password, :password_confirmation, :current_password, :city, :rate,:photo, :description)
-   # Your block here.
-=======
+
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name,:last_name,:id, :name, :email, :password, :password_confirmation, :photo, :rate, :city])
 
->>>>>>> a6c6827ac119e04544e190037a4db5816bc90b52
-  end
  end
   #   devise_parameter_sanitizer.for(:account_update) { |u|
   #     u.permit(:name, :email, :password, :password_confirmation, :current_password, :city, :rate,:photo, :description)
