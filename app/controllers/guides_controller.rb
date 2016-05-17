@@ -3,9 +3,10 @@ class GuidesController < ApplicationController
 
 
   def index
-    if params[:language].present?
-      languageGuide = Language.find(params[:language]).guides
-      @guides = languageGuide.where("Lower(city)LIKE LOWER(?)","%#{params[:city]}%")
+    if params[:language_id].present?
+      languageGuide = Language.find(params[:language_id]).guides
+      @guides = languageGuide.where("Lower(city)LIKE LOWER(?) and rate < ?","%#{params[:city]}%", params[:rate])
+
 
     else
       @guides = []

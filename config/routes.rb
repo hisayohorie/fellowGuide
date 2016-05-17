@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :guides, controllers: { sessions: "guides/sessions", registrations: "guides/registrations" }
 
 
-  root 'bookings#homepage'
+  root 'guides#index'
   resources :guides, only: [:index, :show] do
     resources :bookings
     resources :experiences
