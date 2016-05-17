@@ -1,0 +1,20 @@
+<div class= "container">
+  <div class="image">
+    <img src="fellowhome.png">
+    <div class = "tag_line">
+      <h1>FIND YOUR WALDO</h1>
+      <p>Affordable personalized tour and service from individuals </p>
+      <p>who speak the language you love.</p>
+    </div>
+
+    <div class="guide-index-search">
+      <%= form_for guides_path, method: :get, authentication: false, id: 'search-form' do %>
+      <p><%= label_tag :City %></p>
+      <%= text_field_tag :city, params[:city]%>
+      <p><%= label_tag "Language"%></p>
+      <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
+      <%= submit_tag "Search" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,23 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+  helper_method :resource_name, :resource, :devise_mapping
+
+  def resource_name
+    :visitor
+  end
+
+  def resource
+    @resource ||= Visitor.new
+  end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:visitor]
+  end
+
+protected
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name,:last_name,:id, :description, :name, :email, :password, :password_confirmation, :photo, :rate, :city])
 
