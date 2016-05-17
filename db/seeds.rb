@@ -57,7 +57,11 @@ Visitor.destroy_all
     city:"Toronto"
   )
 
-["Japanese", "Chinese", "Korean"].each do |language|
+["Arabic", "Bengali", "Cantonese", "Dutch", "English", "French", "German","Gujurati","Hindi","Indonesian",
+  "Italian","Japanese", "Javanese", "Jin", "Kannada", "Korean",
+ "Mandarin",  "Malay", "Marathi","Pashto", "Persian", "Polish","Portuguese","Punjabi",
+  "Russian" ,"Spanish", "Southern Min", "Thai", "Tamil", "Telugu","Turkish",
+  "Urdu", "Vietnamese", "Xiang"].each do |language|
   Language.create!({lang: language})
 end
 # language1 = Language.create(
@@ -75,6 +79,6 @@ end
 # guide3.languages.create!(lang: "Japanese, lang: "")
 
 
-guide1.languages << (language1)
-guide2.languages << (language2)
-guide3.languages << ([language1, language3])
+# guide1.languages << (language1)
+# guide2.languages << (language2)
+# guide3.languages << ([language1, language3])
