@@ -2,9 +2,14 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
-<div class="field">
-  <%= f.label :name %><br />
-  <%= f.text_field :name  %>
+<div class="fields">
+  <%= f.label :first_name %><br/>
+  <%= f.text_field :first_name %>
+</div>
+
+<div class="fields">
+  <%= f.label :last_name %><br/>
+  <%= f.text_field :last_name %>
 </div>
 
   <div class="field">

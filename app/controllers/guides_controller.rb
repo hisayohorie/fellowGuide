@@ -44,7 +44,7 @@ class GuidesController < ApplicationController
 
   def update
     @guide = Guide.find(params[:id])
-    if @guide.update_attribute(guide_params)
+    if @guide.update_attributes(guide_params)
       flash[:notice] = "your profile is updated."
       redirect_to guide_path(@guide)
     else
@@ -60,7 +60,7 @@ class GuidesController < ApplicationController
 
   private
   def guide_params
-      params.require(:guide).permit(:name, :email, :password, :password_confirmation, :photo, :rate, :city)
+      params.require(:guide).permit(:id, :first_name, :last_name, :email, :password, :password_confirmation, :photo, :rate, :city, :transportation)
   end
 
 end

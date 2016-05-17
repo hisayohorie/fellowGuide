@@ -1,0 +1,45 @@
+<h1>Edit Profile</h1>
+
+<%= form_for @guide do |f| %>
+  <% if @guide.errors.any? %>
+    <% @guide.errors.full_messages.each do |message|%>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+
+  <div class="fields">
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :email %><br/>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :password %><br/>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :photo %><br/>
+    <%= f.text_field :photo %>
+  </div>
+  <div class="fields">
+    <%= f.label :rate %><br/>
+    <%= f.text_field :rate %>
+  </div>
+  <div class="fields">
+    <%= f.label :city %><br/>
+    <%= f.text_field :city %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,6 +1,23 @@
 <div id="booking-page" data-guide-id = "<%= @guide.id %>">
   <div id= "availabiltiy-bar">
-  </div>
+    <div id="availability-box-1"><span class= "hourSpan"></span></div>
+    <div id="availability-box-2"><span class= "hourSpan"></span></div>
+    <div id="availability-box-3"><span class= "hourSpan"></span></div>
+    <div id="availability-box-4"><div id= "bookingBox"></div><span class= "hourSpan"></span></div>
+    <div id="availability-box-5"><span class= "hourSpan"></span></div>
+    <div id="availability-box-6"><span class= "hourSpan"></span></div>
+    <div id="availability-box-7"><span class= "hourSpan"></span></div>
+    <div id="availability-box-8"><span class= "hourSpan"></span></div>
+    <div id="availability-box-9"><span class= "hourSpan"></span></div>
+    <div id="availability-box-10"><span class= "hourSpan"></span></div>
+    <div id="availability-box-11"><span class= "hourSpan"></span></div>
+    <div id="availability-box-12"><span class= "hourSpan"></span></div>
+</div>
+
+<br><br>
+
+
+<div>
   <div id= "booking-form">
   <%= form_for ([@guide, @booking]) do |f| %>
     <% if @booking.errors.any? %>
@@ -45,4 +62,5 @@
 
   <% end %>
   </div>
+</div>
 </div>
