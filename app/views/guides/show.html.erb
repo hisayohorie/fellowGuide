@@ -3,12 +3,16 @@
 <div class ="profilePic">
 <%= image_tag @guide.photo.thumb %><br/>
 </div>
+
 <p>Rate: $<%= @guide.rate %>/hr</p>
 <p>City: <%= @guide.city %></p>
+
 <% @guide.languages.each do |language|%>
 <p>Language: <%= language.lang %></p>
 <%end%>
+
 <h3>About Me</h3>
+
 <p><%= @guide.description %></p>
 <p>Transpotation: <%= @guide.transportation %></p>
 
@@ -27,6 +31,7 @@
     <% unless booking.accepted %>
       <%=link_to "PENDING - #{booking.experience.name} - #{booking.date}", edit_guide_booking_path(@guide,booking) %>
     <% end %>
+
   <% end %>
   <div>
     <%= link_to 'Create a new Experience', new_guide_experience_path(@guide) %>
@@ -34,4 +39,5 @@
   <div>
     <%= link_to 'Edit Profile', edit_guide_registration_path, method: :get %>
   </div>
+
 <% end %>

@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(version: 20160516215333) do
     t.string   "name"
   end
 
+  create_table "expreinces", force: :cascade do |t|
+    t.datetime "date"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "guides", force: :cascade do |t|
     t.string   "password"
     t.string   "photo"

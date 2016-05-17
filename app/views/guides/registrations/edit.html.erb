@@ -36,6 +36,7 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+<<<<<<< HEAD
   <div class="fields">
     <%= f.label :city %><br/>
     <%= f.text_field :city %>
@@ -61,6 +62,37 @@
   <%= f.select :languages, options_from_collection_for_select(Language.all, "id", "lang"),{}, multiple: true %>
   </div>
 
+=======
+<<<<<<< HEAD
+  <div class="fields">
+    <%= f.label :photo %><br/>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="fields">
+    <%= f.label :rate %><br/>
+    <%= f.text_field :rate %>
+  </div>
+  <div class="fields">
+    <%= f.label :city %><br/>
+    <%= f.text_field :city %>
+  </div>
+
+=======
+  <div class="field">
+    <%= f.label :city %> <br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :rate %> <br />
+    <%= f.number_field :rate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :photo %> <br />
+    <%= f.file_field :photo %>
+  </div>
+>>>>>>> view-guide-registration
+>>>>>>> a6967ff2b375f64556583e1104688a911997edef
   <div class="actions">
     <%= f.submit "Update", method: :put %>
   </div>
