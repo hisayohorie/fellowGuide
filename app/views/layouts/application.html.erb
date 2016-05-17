@@ -8,8 +8,52 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!--
   <p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <p class="alert"><%= alert %></p> -->
+
+  <nav>
+    <ul>
+      <li id ="become_guide">Become a Guide</li>
+        <% if guide_signed_in? %>
+          <div class = "guide_nav">
+            <li><%= link_to "LOG OUT", destroy_guide_session_path, method: :delete %></li>
+          </div>
+          <div class = "guide_nav">
+            <li><%= link_to "EDIT PROFILE", edit_guide_path(current_guide), method: :get %></li>
+          </div>
+        <% else %>
+
+          <div class = "guide_nav">
+            <li><%= link_to "LOG IN", new_guide_session_path, method: :get %></li>
+          </div>
+          <div class = "guide_nav">
+            <li><%= link_to "SIGN UP", new_guide_registration_path, method: :get %></li>
+          </div>
+        <% end %>
+
+        <% if visitor_signed_in? %>
+          <div class = "visitor_nav">
+            <li><%= link_to "LOG OUT", destroy_visitor_session_path, method: :delete %></li>
+          </div>
+          <div class = "visitor_nav">
+            <li><%= link_to "EDIT PROFILE", edit_visitor_registration_path, method: :get %></li>
+          </div>
+        <% else %>
+
+          <div class = "visitor_nav">
+            <li><%= link_to "LOG IN", new_visitor_session_path, method: :get %></li>
+          </div>
+          <div class = "visitor_nav">
+            <li><%= link_to "SIGN UP", new_visitor_registration_path, class: "visitor_signup_link" %></li>
+          </div>
+        <% end %>
+      </ul>
+ </nav>
+
+ <div class= "visitor_signup_modal">
+   <%= render partial: "devise/registrations/visitor_signup"%>
+ </div>
 
 <%= yield %>
 

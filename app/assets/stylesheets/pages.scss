@@ -1,0 +1,147 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+.container {
+  @include outer-container;
+}
+
+
+$font-stack: Helvetica, sans-serif;
+$grey: #eaeaea;
+$pink: #ff2e63;
+$purple: #521262;
+$yellow: #f6c90e;
+$green: #07c1bf;
+$black: #282828;
+
+
+body {
+  font: 100% $font-stack;
+  color: white;
+  margin: 0;
+}
+nav {
+  background-color: $grey;
+
+  ul {
+    list-style: none;
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  li {
+    display: block;
+    text-decoration: none;
+    color: $black;
+      }
+
+  a {
+    display: block;
+    // padding: 6px 12px;
+    text-decoration: none;
+    color: $black;
+    padding-right: 20px;
+  }
+}
+
+#become_guide {
+  border: 2px solid $pink;
+  color: $pink;
+  padding: 5px 5px;
+  margin-right: 10px;
+}
+
+.image {
+  line-height: 0;
+  position: relative;
+  width: 100%;
+}
+
+  img {
+    height: auto;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+  }
+
+
+  .tag_line{
+    text-align: center;
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+
+    p{
+      color: white;
+      padding: 1rem;
+      position: relative;
+      font-weight: bolder;
+      font-size: 1.5rem;
+
+
+    }
+  }
+
+  .guide-index-search {
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    top: 70%;
+    transform: translate(-50%, -50%);
+
+    p {
+      color: white;
+      line-height: 2em;
+      padding: 1em 1.5em;
+      font-size: 1.2rem;
+      position: relative;
+      display: inline-flex;
+    }
+  }
+
+// .guide_signup,
+// .guide_login {
+//   background-color: $grey;
+//   width: 33%;
+//   padding: 3rem;
+//   text-align: center;
+//   left: 50%;
+//   margin: auto;
+//   position: absolute;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
+//   z-index: 999;
+//   .field {
+//     width: 100%;
+//     text-align: center;
+//     position: relative;
+//   }
+//   .label {
+//     margin-top: 10px;
+//   }
+.visitor_signup_modal {
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: $black;
+  text-align: center;
+  height: 100%;
+  width: 60%;
+  z-index: 1;
+
+}
+.visitor_signup_modal a{
+  color: $black;
+}
