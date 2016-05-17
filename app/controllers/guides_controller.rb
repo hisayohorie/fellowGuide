@@ -24,7 +24,7 @@ class GuidesController < ApplicationController
       @booking= Booking.new
       @guide = Guide.find(params[:id])
     else
-      redirect_to root_path
+      @guide = Guide.find(params[:id])
     end
   end
 

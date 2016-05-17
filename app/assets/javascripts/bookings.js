@@ -16,9 +16,36 @@ $(document).on('ready page:load', function(){
     var newBookingBoxWitdth = 40 * parseInt($('#booking_duration').val());
     $('#bookingBox').css('width', newBookingBoxWitdth);
   });
-    $('.actions input').on('click',function(){
 
-    });
+  $('.actions input').on('click',function(e){
+    e.preventDefault;
+    e.stopPropagation;
+    var guideId = $('#booking-page').attr('data-guide-id')
+
+    $.ajax({method:'GET',
+            url: '/guides/' + guideId + '/bookings',
+            dataType:'JSON',
+            success: function(data){
+                availableArray = showAvailabiltyOnThisDate(data);
+                console.log(data);
+
+
+
+                var selectedHour = $('#booking_date_4i').val();
+                var selectedDay = $('#booking_date_3i').val();
+                var selectedMonth = $('#booking_date_2i').val();
+                var selectedYear = $('#booking_date_1i').val();
+
+
+                var daySelected = moment([selectedYear, selectedMonth, selectedDay,selectedHour ,0,0,0]);
+
+                //moment('2010-10-20').isSame('2010-10-20'); // true
+
+                // for each value in data, check to see if it, or for each hour within its duration overlaps
+                // with the booking hour or any hours within it's duration
+            }
+        });
+  });
 });
 
 
@@ -33,7 +60,6 @@ function createAvailbiltyBar(e){
               availableArray = showAvailabiltyOnThisDate(data)
               var duration = data.duration;
               var scheduleHour = parseInt($('#booking_date_4i').val());
-              console.log(scheduleHour + " scheduleHour");
               minRange = scheduleHour - 4;
               maxRange = scheduleHour + 8;
               for (x = minRange; x <= maxRange; x++){
