@@ -1,23 +1,19 @@
-<nav>
-  <ul>
-    <li><b>GUIDE:</b></li>
-  <% if guide_signed_in? %>
-    <div class = "guide_nav">
-      <li><%= link_to "LOG OUT", destroy_guide_session_path, method: :delete %></li>
-    </div>
-    <div class = "guide_nav">
-      <li><%= link_to "EDIT PROFILE", edit_guide_registration_path, method: :get %></li>
-    </div>
-  <% else %>
-    <div class = "guide_nav">
-      <li><%= link_to "LOG IN", new_guide_session_path, method: :get %></li>
-    </div>
-    <!-- <div>
-      <li><%= link_to "I forgot my password GUIDE", new_guide_password_path, method: :get %></li>
-    </div> -->
-    <div class = "guide_nav">
-      <li><%= link_to "SIGN UP", new_guide_registration_path, method: :get %></li>
-    </div>
+
+<h1>All Guides</h1>
+
+
+<div class="guide-index-search">
+  <%= form_tag guides_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= label_tag :City %>
+  <%= text_field_tag :city, params[:city]%>
+  <%= label_tag "Language"%>
+  <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
+  <%= label_tag :rate, "Rate", id: 'rate_label' %>
+  <%= range_field_tag(:rate, 50, in: 1..100, step: 1) %>
+  <%= collection_radio_buttons("", :category_id, Category.all, :id, :name) %>
+
+
+  <%= submit_tag "Search" %>
   <% end %>
   <div class = "empty_block"></div>
     <li><b>VISITOR:</b></li>
@@ -32,9 +28,7 @@
   <div class = "visitor_nav">
     <li><%= link_to "LOG IN", new_visitor_session_path, method: :get %></li>
   </div>
-  <!-- <div>
-    <li><%= link_to "I forgot my password VISITOR", new_visitor_password_path, method: :get %></li>
-  </div> -->
+
   <div class = "visitor_nav">
     <li><%= link_to "SIGN UP", new_visitor_registration_path, method: :get %></li>
   </div>
@@ -63,32 +57,11 @@
 
 
 
-<!-- <% if visitor_signed_in? %>
-  <div>
-    <%= link_to "Log out", destroy_visitor_session_path, method: :delete %>
-  </div>
-  <div>
-    <%= link_to "edit profile", edit_visitor_registration_path, method: :get %>
-  </div>
-
-
-<% else %>
-  <div>
-    <%= link_to "Log in", new_visitor_session_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "I forgot my password", new_visitor_password_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "sign up", new_visitor_registration_path, method: :get %>
-  </div> -->
-
-<!-- <% end %> -->
 
 <% @guides.each do |guide| %>
  <%= link_to guide_path(guide) do %>
    <%= image_tag guide.photo %><br/>
-   <%= guide.name %><br/>
+   <%= guide.first_name %><%= guide.last_name %><br/>
    <%= guide.city %><br/>
    <%= guide.email %><br/>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512213943) do
+ActiveRecord::Schema.define(version: 20160516215333) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
@@ -62,6 +62,9 @@ ActiveRecord::Schema.define(version: 20160512213943) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.text     "description"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "transportation"
   end
 
   add_index "guides", ["email"], name: "index_guides_on_email", unique: true
@@ -79,7 +82,6 @@ ActiveRecord::Schema.define(version: 20160512213943) do
   end
 
   create_table "visitors", force: :cascade do |t|
-    t.string   "name"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -93,6 +95,8 @@ ActiveRecord::Schema.define(version: 20160512213943) do
     t.string   "last_sign_in_ip"
     t.string   "email",                  default: "", null: false
     t.string   "photo"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "visitors", ["reset_password_token"], name: "index_visitors_on_reset_password_token", unique: true

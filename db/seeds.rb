@@ -12,6 +12,7 @@ Booking.destroy_all
 Experience.destroy_all
 Guide.destroy_all
 Visitor.destroy_all
+Category.destroy_all
 
   Booking.create(
     duration: 3,
@@ -31,48 +32,64 @@ Visitor.destroy_all
     )
 
   guide1= Guide.create(
-    name: "Hisayo",
+    first_name: "Hisayo",
+    last_name: "E",
     email:"h@h.com",
     password:"123456",
     photo:"http://placekitten.com/200/300",
     rate:50,
-    city:"Toronto"
+    city:"Toronto",
+    transportation: "car"
   )
 
   guide2= Guide.create(
-    name: "Kexin",
+    first_name: "Kexin",
+    last_name: "Wu",
     email:"x@x.com",
     password:"123456",
     photo:"http://nicenicejpg.com/200/300",
     rate:70,
-    city:"Beijing"
+    city:"Beijing",
+    transportation: "car"
   )
 
   guide3= Guide.create(
-    name: "Kim",
+    first_name: "Kim",
+    last_name: "Erin",
     email:"k@k.com",
     password:"123456",
     photo:"http://placekitten.com/200/300",
     rate:30,
-    city:"Toronto"
+    city:"Toronto",
+    transportation: "car"
   )
 
 
-language1 = Language.create(
-lang: "Japanese"
-)
-language2 = Language.create(
-lang: "Chinese"
-)
-language3 = Language.create(
-lang: "Korean"
-)
+  ["Arabic", "Bengali", "Cantonese", "Dutch", "English", "French", "German","Gujurati","Hindi","Indonesian",
+    "Italian","Japanese", "Javanese", "Jin", "Kannada", "Korean",
+   "Mandarin",  "Malay", "Marathi","Pashto", "Persian", "Polish","Portuguese","Punjabi",
+    "Russian" ,"Spanish", "Southern Min", "Thai", "Tamil", "Telugu","Turkish",
+    "Urdu", "Vietnamese", "Xiang"].each do |language|
+    Language.create!({lang: language})
+  end
 
-# guide1.languages.create!(lang: "Chinese")
+#guide1.languages.create!(lang: "Chinese")
 # guide2.languages.create!(lang: "Korean")
 # guide3.languages.create!(lang: "Japanese, lang: "")
 
 
-guide1.languages << (language1)
-guide2.languages << (language2)
-guide3.languages << ([language1, language3])
+ guide1.languages << (Language.find_by(lang:"Korean"))
+# guide2.languages << (language2)
+# guide3.languages << ([language1, language3])
+
+category1 = Category.create!(
+name: "Newcommer Special"
+)
+
+category2 = Category.create!(
+name: "Customized Tour"
+)
+
+category3 = Category.create!(
+name: "Guide Designed Tour"
+)

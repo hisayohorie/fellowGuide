@@ -5,8 +5,18 @@
   <%= devise_error_messages! %>
 
   <div class="fields">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
+    <%= f.label :photo %><br/>
+    <%= f.file_field :photo %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name %>
   </div>
 
   <div class="field">
@@ -38,14 +48,19 @@
   </div>
 
   <div class="fields">
-    <%= f.label :photo %><br/>
-    <%= f.file_field :photo %>
+    <%= f.label :transportation %><br/>
+    <%= f.text_field :transportation %>
+  </div>
+
+  <div class="fields">
+    <%= f.label :about_me %><br/>
+    <%= f.text_area :description %>
   </div>
 
   <div class= "field">
-  <%= f.label :languages %>
-  <%= f.select :languages, options_from_collection_for_select(Language.all, "id", "lang"),{}, multiple: true %>
-  </div>
+  <%= f.label :language_ids, "For multiple selection, press command and click." %>
+  <%= f.select :language_ids, options_from_collection_for_select(Language.all, "id", "lang"),{}, { :multiple => true, :size =>10 }  %>
+</div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
