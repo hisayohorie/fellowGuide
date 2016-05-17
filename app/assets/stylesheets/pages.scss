@@ -34,6 +34,7 @@ nav {
     display: inline-flex;
     justify-content: flex-end;
     width: 100%;
+    font-size: 0.8rem;
   }
 
   li {
@@ -48,6 +49,7 @@ nav {
     text-decoration: none;
     color: $black;
     padding-right: 20px;
+    padding: 5px 5px;
   }
 }
 
@@ -94,12 +96,13 @@ nav {
   }
 
   .guide-index-search {
-    left: 50%;
+    // left: 50%;
     margin: auto;
+    width: 100vw;
     position: absolute;
-    text-align: center;
+    // text-align: center;
     top: 70%;
-    transform: translate(-50%, -50%);
+    // transform: translate(-50%, -50%);
 
     p {
       color: white;
@@ -111,26 +114,6 @@ nav {
     }
   }
 
-// .guide_signup,
-// .guide_login {
-//   background-color: $grey;
-//   width: 33%;
-//   padding: 3rem;
-//   text-align: center;
-//   left: 50%;
-//   margin: auto;
-//   position: absolute;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-//   z-index: 999;
-//   .field {
-//     width: 100%;
-//     text-align: center;
-//     position: relative;
-//   }
-//   .label {
-//     margin-top: 10px;
-//   }
 .visitor_signup_modal {
   display: none;
   position: absolute;

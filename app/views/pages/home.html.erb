@@ -14,6 +14,8 @@
       <p><%= label_tag "Language"%></p>
       <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
       <%= submit_tag "Search" %>
+      <p><%= label_tag :Date %></p>
+      <%= date_select :date, params[:date]%>
       <% end %>
     </div>
   </div>
