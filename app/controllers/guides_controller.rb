@@ -87,7 +87,7 @@ class GuidesController < ApplicationController
   #   @guide.destroy
   #   redirect_to root_path
   # end
->>>>>>> view-guide-registration
+
 
   private
   def guide_params
