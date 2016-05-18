@@ -5,8 +5,6 @@ class GuidesController < ApplicationController
     if params[:language_id].present?
       languageGuide = Language.find(params[:language_id]).guides
       @guides = languageGuide.where("Lower(city)LIKE LOWER(?) and rate < ?","%#{params[:city]}%", params[:rate])
-
-
     else
       @guides = []
     end

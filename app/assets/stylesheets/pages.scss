@@ -23,7 +23,8 @@ $black: #282828;
 
 body {
   font: 100% $font-stack;
-  color: $grey;
+  color: $black;
+  background-color: $grey;
   margin: 0;
 }
 
@@ -59,6 +60,7 @@ nav {
   color: $pink;
   padding: 5px 5px;
   margin-right: 10px;
+  background-color: $grey;
 }
 
 .image {
@@ -84,13 +86,18 @@ nav {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    h1{
+      color: white;
+      padding: 1rem;
+      font-size: 2.5rem;
+    }
 
     p{
       color: white;
-      padding: 1rem;
       position: relative;
       font-weight: bolder;
       font-size: 1.5rem;
+      font-weight: normal;
 
 
     }
@@ -98,10 +105,11 @@ nav {
 
   .guide-index-search {
     // left: 50%;
-    margin: auto;
-    width: 100vw;
+    // margin: auto;
+    width: 100%;
     position: absolute;
     top: 70%;
+    text-align: center;
     // transform: translate(-50%, -50%);
 
     p {
@@ -111,11 +119,12 @@ nav {
       font-size: 0.8rem;
       position: relative;
       display: inline-flex;
-      justify-content: center;
     }
   }
 
-.visitor_signup_modal {
+.visitor_signup_modal,
+.visitor_login_modal
+{
   display: none;
   position: absolute;
   background-color: white;
@@ -127,6 +136,52 @@ nav {
   margin: 0 20%;
 
 }
+.visitor_login_modal a,
 .visitor_signup_modal a{
   color: $black;
+}
+
+.become_guide_modal{
+  display: none;
+  position: absolute;
+  background-color: white;
+  color: $black;
+  text-align: center;
+  height: 100%;
+  width: 60%;
+  z-index: 2;
+  margin: 0 20%;
+}
+
+.city_css {
+  border: 1px solid white;
+  background-color: inherit;
+  padding: 5px;
+  font: white;
+}
+
+.language_css {
+  border: 1px solid white;
+  background-color: inherit;
+  padding: 5px;
+  color: white;
+  padding: 5px;
+}
+
+.date_css {
+  border: 1px solid white;
+  background-color: inherit;
+  padding: 5px;
+
+}
+
+.search_button {
+  border: 1px solid $pink;
+  border-radius: 5%;
+  background-color: $pink;
+  font-size: 20px;
+  color: white;
+  padding: 2.5px 30px;
+  margin-left: 20px;
+
 }
