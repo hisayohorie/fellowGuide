@@ -8,15 +8,7 @@
     </div>
 
     <div class="guide-index-search">
-      <%= form_tag guides_path, method: :get, authentication: false, id: 'search-form' do %>
-      <p><%= label_tag :city %></p>
-      <%= text_field_tag :city, params[:city], class: "city_css"%>
-      <p><%= label_tag "language"%></p>
-      <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang"), class: "language_css" %>
-      <p><%= label_tag :date %></p>
-      <%= date_select :date, params[:date], class: "date_css" %>
-      <%= submit_tag "Search", class: "search_button" %>
-      <% end %>
+      <%= render partial: "guides/guide_search"%>
     </div>
   </div>
 </div>
