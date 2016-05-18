@@ -9,13 +9,13 @@
 
     <div class="guide-index-search">
       <%= form_for guides_path, method: :get, authentication: false, id: 'search-form' do %>
-      <p><%= label_tag :City %></p>
+      <p><%= label_tag :city %></p>
       <%= text_field_tag :city, params[:city]%>
-      <p><%= label_tag "Language"%></p>
+      <p><%= label_tag "language"%></p>
       <%= select_tag :language, options_from_collection_for_select(Language.all, "id", "lang") %>
-      <%= submit_tag "Search" %>
-      <p><%= label_tag :Date %></p>
+      <p><%= label_tag :date %></p>
       <%= date_select :date, params[:date]%>
+      <%= submit_tag "Search" %>
       <% end %>
     </div>
   </div>

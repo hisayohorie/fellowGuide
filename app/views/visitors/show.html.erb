@@ -1,4 +1,4 @@
 
-<h1><%= @visitor.name %></h1>
+<h1><%= @visitor.first_name%> <%= @visitor.last_name %></h1>
 <p><%= @visitor.email%><p>
 <%= link_to 'Edit Profile', edit_visitor_registration_path(@guide) %>
