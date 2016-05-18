@@ -1,7 +1,11 @@
 
 
-$(document).on('ready page:load', function(){
-  $('#availabiltiy-bar > div').toggleClass("square greenSquare");
+$(document).on('ready page:load', function(e){
+
+
+  // $('#availabiltiy-bar > div').toggleClass("square greenSquare");
+  createAvailbiltyBar(e);
+
   $('#booking_date_4i').on('change', function(e){
     createAvailbiltyBar(e);
   });

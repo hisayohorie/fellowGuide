@@ -1,4 +1,21 @@
 
 <h1><%= @visitor.first_name%> <%= @visitor.last_name %></h1>
 <p><%= @visitor.email%><p>
+
+<div>
+    Upcoming Tours
+</div>
+<div>
+  <%@visitor.bookings.each do |booking| %>
+    <div>
+      Guide : <%=booking.guide.first_name%> <%=booking.guide.last_name%>
+    </div>
+    <div>
+      Date: <%=booking.date%>
+    </div>
+    <div>
+      Length of Booking :<%=booking.duration%>
+    </div>
+  <%end%>
+</div>
 <%= link_to 'Edit Profile', edit_visitor_registration_path(@guide) %>
