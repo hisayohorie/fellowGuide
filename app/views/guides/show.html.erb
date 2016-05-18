@@ -27,9 +27,21 @@
 <%end%>
 <%if guide_signed_in? %>
 
+<h3>Bookings awaiting payment</h3>
+<% @guide.bookings.each do |booking| %>
+  <% if booking.accepted %>
+  <div>
+    <%=booking.experience.name%>   - <%=booking.date %>
+  </div>
+  <% end %>
+<%end%>
+
+<h3>Bookings awaiting Acceptance</h3>
   <% @guide.bookings.each do |booking| %>
     <% unless booking.accepted %>
-      <%=link_to "PENDING - #{booking.experience.name} - #{booking.date}", edit_guide_booking_path(@guide,booking) %>
+      <div>
+        <%=link_to "#{booking.experience.name} - #{booking.date}", edit_guide_booking_path(@guide,booking) %>
+      </div>
     <% end %>
 
   <% end %>

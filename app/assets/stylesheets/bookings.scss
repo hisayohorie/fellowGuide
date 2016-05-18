@@ -11,13 +11,14 @@
   bottom: 25px;
   right: 26px;
       font-size: 12px;
+      border-color: black;
 }
 
 #bookingBox{
   position: absolute;
 top: 23px;
 border-style: solid;
-border-bottom-color: black;
+border-color: black;
 height: 10px;
 width: 40px;
 border-width: 2px;
@@ -61,4 +62,5 @@ border-width: 2px;
   float:left;
   position: relative;
   z-index: 10;
+  color:black;
 }
