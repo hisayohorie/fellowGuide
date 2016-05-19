@@ -14,12 +14,21 @@ Guide.destroy_all
 Visitor.destroy_all
 Category.destroy_all
 
-  Booking.create(
-    duration: 3,
-    accepted:false,
-    experience_id:4,
-    visitor_id:7
-  )
+["Arabic", "Bengali", "Cantonese", "Dutch", "English", "French", "German","Gujurati","Hindi","Indonesian",
+  "Italian","Japanese", "Javanese", "Jin", "Kannada", "Korean",
+ "Mandarin",  "Malay", "Marathi","Pashto", "Persian", "Polish","Portuguese","Punjabi",
+  "Russian" ,"Spanish", "Southern Min", "Thai", "Tamil", "Telugu","Turkish",
+  "Urdu", "Vietnamese", "Xiang"].each do |language|
+  Language.create!({lang: language})
+end
+
+
+  # Booking.create(
+  #   duration: 3,
+  #   accepted:false,
+  #   experience_id:4,
+  #   visitor_id:7
+  # )
 
   # Categories_experiences.creates{
   #   catergory_id:i,
@@ -40,6 +49,7 @@ Category.destroy_all
     rate:50,
     city:"Toronto",
     transportation: "car"
+
   )
 
   guide2= Guide.create(
@@ -64,26 +74,18 @@ Category.destroy_all
     transportation: "car"
   )
 
-
-  ["Arabic", "Bengali", "Cantonese", "Dutch", "English", "French", "German","Gujurati","Hindi","Indonesian",
-    "Italian","Japanese", "Javanese", "Jin", "Kannada", "Korean",
-   "Mandarin",  "Malay", "Marathi","Pashto", "Persian", "Polish","Portuguese","Punjabi",
-    "Russian" ,"Spanish", "Southern Min", "Thai", "Tamil", "Telugu","Turkish",
-    "Urdu", "Vietnamese", "Xiang"].each do |language|
-    Language.create!({lang: language})
-  end
-
-#guide1.languages.create!(lang: "Chinese")
-# guide2.languages.create!(lang: "Korean")
-# guide3.languages.create!(lang: "Japanese, lang: "")
+guide1.languages << Language.find_by(lang:"Korean")
+guide2.languages << Language.find_by(lang:"Japanese")
+guide3.languages << Language.find_by(lang:"Japanese")
+guide3.languages << Language.find_by(lang:"Arabic")
 
 
- guide1.languages << (Language.find_by(lang:"Korean"))
-# guide2.languages << (language2)
-# guide3.languages << ([language1, language3])
+guide1.save
+guide2.save
+guide3.save
 
 category1 = Category.create!(
-name: "Newcommer Special"
+name: "Newcomer Special"
 )
 
 category2 = Category.create!(
