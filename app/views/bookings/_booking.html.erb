@@ -13,13 +13,11 @@
     <div id="availability-box-10"><span class= "hourSpan"></span></div>
     <div id="availability-box-11"><span class= "hourSpan"></span></div>
     <div id="availability-box-12"><span class= "hourSpan"></span></div>
+  </div>
 </div>
 
-<br><br>
 
-
-<div>
-  <div id= "booking-form">
+<div id= "booking-form">
   <%= form_for ([@guide, @booking]) do |f| %>
     <% if @booking.errors.any? %>
       <div id="error_explanation">
@@ -57,11 +55,9 @@
     <% end %>
 
 
-    <div id="booking_button" class="actions">
-      <%= f.submit %>
+    <div class="actions" id="booking_button">
+      <%= f.submit id: "booking_button" %>
     </div>
 
   <% end %>
-  </div>
-</div>
 </div>

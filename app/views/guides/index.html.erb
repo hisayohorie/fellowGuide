@@ -2,47 +2,9 @@
 
 
 <div class="guide-index-search">
-  <%= form_tag guides_path, method: :get, authentication: false, id: 'search-form' do %>
-  <%= label_tag :city %>
-  <%= text_field_tag :city, params[:city]%>
-  <%= label_tag "Language"%>
-  <%= select_tag :language_id, options_from_collection_for_select(Language.all, "id", "lang", params[:language_id]) %>
-  <%= label_tag :rate, "Rate", id: 'rate_label' %>
-  <span>$20</span>
-  <%= range_field_tag(:rate, 60, in: 20..100, step: 1) %>
-  <span>$100</span>
-  <%= collection_radio_buttons("", :category_id, Category.all, :id, :name) %>
+  <%= render partial: "guides/guide_search"%>
 
 
-  <%= submit_tag "Search" %>
-  <% end %>
-
-
-
-
-
-<!-- <% if visitor_signed_in? %>
-  <div>
-    <%= link_to "Log out", destroy_visitor_session_path, method: :delete %>
-  </div>
-  <div>
-    <%= link_to "edit profile", edit_visitor_registration_path, method: :get %>
-  </div>
-
-
-<% else %>
-  <div>
-    <%= link_to "Log in", new_visitor_session_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "I forgot my password", new_visitor_password_path, method: :get %>
-  </div>
-  <div>
-    <%= link_to "sign up", new_visitor_registration_path, method: :get %>
-  </div> -->
-
-<!-- <% end %> -->
->>>>>>> home-css-modal
 
 <% @guides.each do |guide| %>
  <%= link_to guide_path(guide) do %>

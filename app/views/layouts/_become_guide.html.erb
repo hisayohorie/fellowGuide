@@ -1,0 +1,16 @@
+<% if guide_signed_in? %>
+  <div class = "guide_nav">
+    <li><%= link_to "LOG OUT", destroy_guide_session_path, method: :delete %></li>
+  </div>
+  <div class = "guide_nav">
+    <li><%= link_to "PROFILE", guide_path(current_guide), method: :get %></li>
+  </div>
+<% else %>
+
+  <div class = "guide_nav">
+    <li><%= link_to "LOG IN", new_guide_session_path, class: "guide_login_link" %></li>
+  </div>
+  <div class = "guide_nav">
+    <li><%= link_to "SIGN UP", new_guide_registration_path, class: "guide_signup_link" %></li>
+  </div>
+<% end %>

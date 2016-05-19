@@ -4,7 +4,7 @@ $(document).on('ready page:load', function(e){
 
 
   // $('#availabiltiy-bar > div').toggleClass("square greenSquare");
-  createAvailbiltyBar(e);
+   //createAvailbiltyBar(e);
 
   $('#booking_date_4i').on('change', function(e){
     createAvailbiltyBar(e);
@@ -21,6 +21,7 @@ $(document).on('ready page:load', function(e){
     $('#bookingBox').css('width', newBookingBoxWitdth);
   });
 
+<<<<<<< HEAD
   //this is the mechanisim that makes sure the button happens
   var booking_button_has_fired = false
 
@@ -95,6 +96,7 @@ $(document).on('ready page:load', function(e){
             }
         });
   });
+
 });
 
 
