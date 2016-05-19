@@ -22,8 +22,8 @@ $(document).on('ready page:load', function(e){
   });
 
   $('.actions input').on('click',function(e){
-    e.preventDefault;
-    e.stopPropagation;
+    e.preventDefault();
+    e.stopPropagation();
     var guideId = $('#booking-page').attr('data-guide-id')
 
     $.ajax({method:'GET',
@@ -31,22 +31,54 @@ $(document).on('ready page:load', function(e){
             dataType:'JSON',
             success: function(data){
                 availableArray = showAvailabiltyOnThisDate(data);
-                console.log(data);
-
-
-
                 var selectedHour = $('#booking_date_4i').val();
                 var selectedDay = $('#booking_date_3i').val();
-                var selectedMonth = $('#booking_date_2i').val();
+                var selectedMonth = $('#booking_date_2i').val()-1;
                 var selectedYear = $('#booking_date_1i').val();
-
 
                 var daySelected = moment([selectedYear, selectedMonth, selectedDay,selectedHour ,0,0,0]);
 
                 //moment('2010-10-20').isSame('2010-10-20'); // true
 
-                // for each value in data, check to see if it, or for each hour within its duration overlaps
-                // with the booking hour or any hours within it's duration
+
+                var conflict = false;
+
+                // Check to see if the start is withing an exsisiting booking
+                for (var x = 0; x<data.length; x++){
+                  var acceptedBookingStart = moment(data[x].date);
+                  //account for timezone shift... fix this for all zones later
+                  acceptedBookingStart.add(0,'h');
+                  var acceptedDuration = parseInt(data[x].duration);
+                  var acceptedBookingEnd = acceptedBookingStart.clone();
+                  acceptedBookingEnd.add(acceptedDuration,'hours');
+
+
+
+                  //true if day in time after
+                  var sameOrAfterStart = daySelected.isSameOrAfter(acceptedBookingStart, 'hour');
+                  //true if day in time before
+                  var sameOrBeforeEnd = daySelected.isSameOrBefore(acceptedBookingEnd, 'hour');
+
+                  try{
+                    if (sameOrAfterStart && sameOrBeforeEnd) throw "booked"
+                  }
+                  catch(err){
+                    alert("The guide is allready " + err + "!");
+                    return;
+                  }
+
+                  //
+                  // acceptedBookingStart.minutes(0);
+                  // acceptedBookingStart.seconds(0);
+                  // daySelected.minutes(0);
+                  // daySelected.second(0);
+                  //
+                  // console.log(acceptedBookingStart.format('M, D, Y, h,m') + " Booking Start " + x);
+                  // console.log(acceptedBookingEnd.format('M, D, Y, h') + " Booking end " + x);
+                  // console.log(acceptedDuration + " Duration" + x);
+                  // console.log(daySelected.format('M, D, Y, h,m,s') );
+
+                }
             }
         });
   });
@@ -68,7 +100,7 @@ function createAvailbiltyBar(e){
               maxRange = scheduleHour + 8;
               for (x = minRange; x <= maxRange; x++){
                 var time = x + ":00"
-                $('#availabiltiy-bar #availability-box-'+ (x-minRange+1) + ' .hourSpan').html(time);
+                $('#availabiltiy-bar #availability-box-'+ (x-minRange) + ' .hourSpan').html(time);
                 var currentBox = $('#availabiltiy-bar #availability-box-'+ (x - minRange));
                 if (availableArray[x] === false){
                   currentBox.removeClass();
