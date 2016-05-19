@@ -2,7 +2,8 @@
 
 
 <div class="guide-index-search">
-  <%= form_tag guides_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= render partial: "guides/guide_search"%>
+  <!-- <%= form_tag guides_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= label_tag :city %>
   <%= text_field_tag :city, params[:city]%>
   <%= label_tag "Language"%>
@@ -14,11 +15,8 @@
   <%= collection_radio_buttons("", :category_id, Category.all, :id, :name) %>
 
 
-  <%= submit_tag "Search" %>
+  <%= submit_tag "Search" %> -->
   <% end %>
-
-
-
 
 
 <!-- <% if visitor_signed_in? %>

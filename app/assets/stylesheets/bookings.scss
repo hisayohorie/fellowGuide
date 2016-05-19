@@ -1,11 +1,20 @@
+.booking_wrapper {
+  background-color: $pink;
+  color: white;
+  z-index: 1;
+  height: 50vh;
+  position: absolute;
+  top:0;
+  width: 50vw;
+  margin: 25vh 25vh; 
+}
+
 
 #booking-page{
-
+  overflow: hidden;
 }
 
-#booking-form{
-  float:left;
-}
+
 .hourSpan{
   position: absolute;
   bottom: 25px;
