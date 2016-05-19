@@ -91,7 +91,7 @@ nav {
       video {
         width: 100%;
       }
-
+}
 
   .tag_line{
     text-align: center;
@@ -123,7 +123,7 @@ nav {
     // margin: auto;
 
     width: 100%;
-    position: relative;
+    position: absolute;
     top: 70%;
     text-align: center;
 
@@ -139,8 +139,7 @@ nav {
   }
 
 .visitor_signup_modal,
-.visitor_login_modal
-{
+.visitor_login_modal {
   display: none;
   position: absolute;
   background-color: white;
@@ -157,6 +156,8 @@ nav {
 .visitor_signup_modal a{
   color: $black;
 }
+
+
 
 .become_guide_modal{
   display: none;
