@@ -16,7 +16,7 @@
     <div>
       Length of Booking :<%=booking.duration%>
     </div>
-      <%=link_to 'Cancel', guide_booking_path(booking.guide , booking), method: :delete %>
+      <%=link_to 'Cancel', guide_booking_path(booking.guide , booking), method: :delete, data: {confirm: "Are you sure?"} %>
   <%end%>
 </div>
 <%= link_to 'Edit Profile', edit_visitor_registration_path(@guide) %>
