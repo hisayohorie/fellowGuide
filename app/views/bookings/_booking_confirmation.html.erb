@@ -1,0 +1,18 @@
+<div class = "booking_wrapper">
+  <h1>Booking Confirmation:</h1>
+
+  <div>
+      <div>
+        <button class = "close">CONFIRM</button>
+
+        Guide : <%=@booking.guide.first_name%> <%=@booking.guide.last_name%>
+      </div>
+      <div>
+        Date: <%=@booking.date%>
+      </div>
+      <div>
+        Length of Booking :<%=@booking.duration%>
+      </div>
+
+  </div>
+</div>

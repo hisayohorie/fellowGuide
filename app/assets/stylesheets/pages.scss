@@ -20,7 +20,9 @@ $yellow: #f6c90e;
 $green: #07c1bf;
 $black: #282828;
 
-
+html, body {
+  height: 100%;
+}
 body {
   font: 100% $font-stack;
   color: $black;
@@ -28,15 +30,30 @@ body {
   margin: 0;
 }
 
+.home_nav {
+  float: left;
+  display: inline-block;
+  font-size: 0.8rem;
+  a{
+    color: $pink;
+  }
+}
+
 nav {
   background-color: $grey;
+  margin: 5px;
+  overflow: hidden;
+
 
   ul {
     list-style: none;
     display: inline-flex;
     justify-content: flex-end;
-    width: 100%;
+    // width: 100%;
+    float: right;
     font-size: 0.8rem;
+    overflow: hidden;
+    margin:0;
   }
 
   li {
@@ -63,19 +80,6 @@ nav {
   background-color: $grey;
 }
 
-//.image {
-//  line-height: 0;
-//  position: relative;
-//  width: 100%;
-//}
-//
-//  img {
-//    height: auto;
-//    left: 0;
-//    position: relative;
-//    top: 0;
-//    width: 100%;
-//  }
 
   .video_pane {
       min-width: 100%;
@@ -87,7 +91,7 @@ nav {
       video {
         width: 100%;
       }
-  }
+
 
   .tag_line{
     text-align: center;
@@ -117,13 +121,14 @@ nav {
   .guide-index-search {
     // left: 50%;
     // margin: auto;
+
     width: 100%;
     position: relative;
     top: 70%;
     text-align: center;
-    // transform: translate(-50%, -50%);
 
-    p {
+
+    label {
       color: white;
       line-height: 2em;
       padding: 0.8em;
@@ -141,7 +146,8 @@ nav {
   background-color: white;
   color: $black;
   text-align: center;
-  height: 100%;
+  height: 70%;
+  line-height: 30px;
   width: 60%;
   z-index: 1;
   margin: 0 20%;
@@ -158,10 +164,12 @@ nav {
   background-color: white;
   color: $black;
   text-align: center;
-  height: 100%;
+  height: 70%;
+  line-height: 70px;
   width: 60%;
   z-index: 2;
   margin: 0 20%;
+
 }
 
 .city_css {

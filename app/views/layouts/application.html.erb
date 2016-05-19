@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>FellowGuide</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application'%>
   <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js' %>
 
   <%= csrf_meta_tags %>
@@ -14,7 +14,11 @@
   <p class="alert"><%= alert %></p> -->
 
   <nav>
+    <div class= "home_nav">
+      <%=link_to "HOME", root_path %>
+    </div>
     <ul>
+
       <button id ="become_guide">Guide</button>
         <!-- <% if guide_signed_in? %>
           <div class = "guide_nav">
@@ -24,21 +28,17 @@
             <li><%= link_to "EDIT PROFILE", edit_guide_registration_path(current_guide), method: :get %></li>
           </div>
         <% else %>
+=======
+      <button id ="become_guide">Become Guide</button>
+>>>>>>> b4f851ce075822f69887a7b4be2aff0de7132ee4
 
-          <div class = "guide_nav">
-            <li><%= link_to "LOG IN", new_guide_session_path, method: :get %></li>
-          </div>
-          <div class = "guide_nav">
-            <li><%= link_to "SIGN UP", new_guide_registration_path, method: :get %></li>
-          </div>
-        <% end %> -->
 
         <% if visitor_signed_in? %>
           <div class = "visitor_nav">
-            <li><%= link_to "LOG OUT", destroy_visitor_session_path, method: :delete %></li>
+            <li ><%= link_to "LOG OUT", destroy_visitor_session_path, method: :delete %></li>
           </div>
           <div class = "visitor_nav">
-            <li><%= link_to "EDIT PROFILE", edit_visitor_registration_path, method: :get %></li>
+            <li><%= link_to "PROFILE", visitor_path(current_visitor), method: :get %></li>
           </div>
         <% else %>
 

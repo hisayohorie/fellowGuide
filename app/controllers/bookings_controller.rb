@@ -5,16 +5,16 @@ class BookingsController < ApplicationController
     @guide = Guide.find(params[:guide_id])
     @bookings = @guide.bookings
 
-# render :json => items.to_json(:only => [:id, :name]),
+    # render :json => items.to_json(:only => [:id, :name]),
 
-    respond_to do |format|
-      format.html
-      format.json do
-        # this is in answer to bookings page to display availablity
-        render json: @bookings.to_json(only: [:date, :duration])
-      end
+        respond_to do |format|
+          format.html
+          format.json do
+            # this is in answer to bookings page to display availablity
+            render json: @bookings.to_json(only: [:date, :duration])
+          end
 
-    end
+        end
   end
 
   def create
@@ -23,11 +23,13 @@ class BookingsController < ApplicationController
     @booking.guide_id = @guide.id
     @booking.visitor_id = current_visitor.id
     @booking.accepted = false
-    if @booking.save
-      flash[:notice] = "Booking requested!"
-      redirect_to root_url
-    else
-      render :new
+    respond_to do |format|
+      if @booking.save
+        format.html
+        format.js{}
+      else
+        format.html
+      end
     end
   end
 
