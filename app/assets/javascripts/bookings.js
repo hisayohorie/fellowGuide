@@ -64,9 +64,9 @@ $(document).on('ready page:load', function(e){
 
 
                   //true if day in time after
-                  var sameOrAfterStart = daySelected.isSameOrAfter(acceptedBookingStart, 'hour');
+                  var sameOrAfterStart = daySelected.isAfter(acceptedBookingStart, 'hour');
                   //true if day in time before
-                  var sameOrBeforeEnd = daySelected.isSameOrBefore(acceptedBookingEnd, 'hour');
+                  var sameOrBeforeEnd = daySelected.isBefore(acceptedBookingEnd, 'hour');
 
                   try{
                     if (sameOrAfterStart && sameOrBeforeEnd) throw "booked"
@@ -75,22 +75,11 @@ $(document).on('ready page:load', function(e){
                     alert("The guide is allready " + err + "!");
                     return;
                   }
-                  //
-                  // acceptedBookingStart.minutes(0);
-                  // acceptedBookingStart.seconds(0);
-                  // daySelected.minutes(0);
-                  // daySelected.second(0);
-                  //
-                  // console.log(acceptedBookingStart.format('M, D, Y, h,m') + " Booking Start " + x);
-                  // console.log(acceptedBookingEnd.format('M, D, Y, h') + " Booking end " + x);
-                  // console.log(acceptedDuration + " Duration" + x);
-                  // console.log(daySelected.format('M, D, Y, h,m,s') );
 
                 }
 
               booking_button_has_fired = true;
-              console.log(self);
-              // $(self).trigger('click');
+              $(self).trigger('click');
 
             }
         });
@@ -113,7 +102,6 @@ function createAvailbiltyBar(e){
               minRange = scheduleHour - 4;
               maxRange = scheduleHour + 8;
               for (x = minRange; x <= maxRange; x++){
-console.log('I am HERE');
                 var time = x + ":00"
                 $('#availabiltiy-bar #availability-box-'+ (x-minRange) + ' .hourSpan').html(time);
                 var currentBox = $('#availabiltiy-bar #availability-box-'+ (x - minRange));
