@@ -63,20 +63,31 @@ nav {
   background-color: $grey;
 }
 
-.image {
-  line-height: 0;
-  position: relative;
-  width: 100%;
-}
+//.image {
+//  line-height: 0;
+//  position: relative;
+//  width: 100%;
+//}
+//
+//  img {
+//    height: auto;
+//    left: 0;
+//    position: relative;
+//    top: 0;
+//    width: 100%;
+//  }
 
-  img {
-    height: auto;
-    left: 0;
-    position: relative;
-    top: 0;
-    width: 100%;
+  .video_pane {
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      background-size: cover;
+
+      video {
+        width: 100%;
+      }
   }
-
 
   .tag_line{
     text-align: center;
@@ -86,6 +97,8 @@ nav {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
+    background-color: rgha(0,0,0,0,7);
+
     h1{
       color: white;
       padding: 1rem;
@@ -98,8 +111,6 @@ nav {
       font-weight: bolder;
       font-size: 1.5rem;
       font-weight: normal;
-
-
     }
   }
 
@@ -107,7 +118,7 @@ nav {
     // left: 50%;
     // margin: auto;
     width: 100%;
-    position: absolute;
+    position: relative;
     top: 70%;
     text-align: center;
     // transform: translate(-50%, -50%);
