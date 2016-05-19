@@ -1,5 +1,8 @@
-$(document).on('ready', function(){
-  $('#booking_button').on('click', function(e){
+$(document).on('ready page:load', function(){
+  // $('#booking_button').on('click', function(e){
+    $('#new_booking').on('submit', function(e){
+
+
     e.preventDefault();
 
     var bookingData = $('#new_booking').serialize();
@@ -13,8 +16,6 @@ $(document).on('ready', function(){
     });
   });
 
-  $('.close').on('click', function(){
-    // rediterect to the profile page
-  });
+
 
 });
