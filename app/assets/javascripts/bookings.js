@@ -4,7 +4,7 @@ $(document).on('ready page:load', function(e){
 
 
   // $('#availabiltiy-bar > div').toggleClass("square greenSquare");
-  createAvailbiltyBar(e);
+   createAvailbiltyBar(e);
 
   $('#booking_date_4i').on('change', function(e){
     createAvailbiltyBar(e);
@@ -21,7 +21,7 @@ $(document).on('ready page:load', function(e){
     $('#bookingBox').css('width', newBookingBoxWitdth);
   });
 
-  $('.actions input').on('click',function(e){
+  $('#booking_butto input').on('click',function(e){
     e.preventDefault();
     e.stopPropagation();
     var guideId = $('#booking-page').attr('data-guide-id')

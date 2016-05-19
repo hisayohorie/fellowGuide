@@ -14,7 +14,7 @@ $(document).on('ready', function(){
   });
 
   $('.close').on('click', function(){
-    #rediterect to the profile page
+    // rediterect to the profile page
   });
 
 });
