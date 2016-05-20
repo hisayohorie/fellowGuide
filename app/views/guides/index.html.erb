@@ -4,13 +4,7 @@
 <div class="guide-index-search">
 
   <%= render partial: "guides/guide_search"%>
-  <%= form_tag guides_path, method: :get, authentication: false, id: 'search-form' do %>
 
-    <%= label_tag :rate, "Rate", id: 'rate_label' %>
-    <span>$20</span>
-    <%= range_field_tag(:rate, 60, in: 20..100, step: 1) %>
-    <span>$100</span>
-    <%= collection_radio_buttons("", :category_id, Category.all, :id, :name) %>
 
 
 
@@ -24,4 +18,4 @@
    <%= button_to 'more info', guide_path(guide)%>
 
  <% end %>
-<% end %>
+ <% end %>
