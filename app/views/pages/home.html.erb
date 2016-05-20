@@ -1,11 +1,12 @@
-  <div class="image">
-    <div class = "tag_line">
-      <h1>FIND YOUR WALDO</h1>
-      <p>Affordable personalized tour and service from individuals </p>
-      <p>who speak the language you love.</p>
+    <div class="video_pane">
+    <%= video_tag("Waldo2.mp4", :preload => "auto", :autobuffer => true, :autoplay =>true, :loop =>"loop", :muted => "muted" ) %>
     </div>
 
+    <div class = "tag_line">
+        <h1>FIND YOUR FELLOW</h1>
+        <p>Affordable personalized tour from individuals </p>
+        <p>who speak the language you love.</p>
+    </div>
     <div class="guide-index-search">
       <%= render partial: "guides/guide_search"%>
     </div>
-  </div>

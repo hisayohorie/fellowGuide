@@ -9,17 +9,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<!--
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p> -->
+
 
   <nav>
     <div class= "home_nav">
       <%=link_to "HOME", root_path %>
     </div>
     <ul>
-      <button id ="become_guide">Become Guide</button>
 
+      <button id ="become_guide">Guide</button>
 
         <% if visitor_signed_in? %>
           <div class = "visitor_nav">
