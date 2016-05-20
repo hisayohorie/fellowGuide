@@ -30,6 +30,7 @@
 <h3>Bookings awaiting payment</h3>
 <% @guide.bookings.each do |booking| %>
   <% if booking.accepted %>
+
   <div>
     <%=booking.experience.name%>   - <%=booking.date %>
   </div>

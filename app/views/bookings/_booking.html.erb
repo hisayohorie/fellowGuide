@@ -1,4 +1,4 @@
-b
+
 <div id="booking-page" data-guide-id = "<%= @guide.id %>">
   <div id= "availabiltiy-bar">
     <div id="availability-box-1"><span class= "hourSpan"></span></div>
@@ -22,7 +22,6 @@ b
     <% if @booking.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-
         <ul>
           <% @booking.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -30,29 +29,31 @@ b
         </ul>
       </div>
     <% end %>
+
     <div>
       <%= f.hidden_field :experience_id, value: @experience_id %>
     </div>
-    <div class="field">
-      <%= f.label :date %><br/>
-      <%= f.datetime_select:date, discard_minute: true%><br/>
-    </div>
 
-    <div class="field">
-      <%= f.label :duration %><br/>
-      <%= f.number_field :duration %><br/>
-    </div>
+
+      <div class="field">
+        <%= f.label :date %><br/>
+        <%= f.datetime_select:date, discard_minute: true%><br/>
+      </div>
+
+      <div class="field">
+        <%= f.label :duration %><br/>
+        <%= f.number_field :duration %><br/>
+      </div>
+
 
     <% if guide_signed_in? %>
-
         <%= f.label "Accept this booking" %>:
         <%= f.radio_button :accepted,true %>
         <%= f.label :accepted, "yes" %>
         <%= f.radio_button :accepted,false %>
         <%= f.label :accepted, "no" %>
-
-
     <% end %>
+
 
 
     <div class="actions" >
@@ -60,4 +61,26 @@ b
     </div>
 
   <% end %>
-</div>
+
+  <% if ((visitor_signed_in?) && (@booking.accepted == true)) %>
+  <%binding.pry%>
+      </div>
+      <%= form_tag charges_path do %>
+        <article>
+          <% if flash[:error].present? %>
+            <div id="error_explanation">
+              <p><%= flash[:error] %></p>
+            </div>
+          <% end %>
+          <label class="amount">
+            <span>Amount: $5.00</span>
+          </label>
+        </article>
+        <%= hidden_field_tag :booking_id, @booking.id%>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%=ENV["stripe_publishable_key"]%>"
+                data-description="A month's subscription"
+                data-amount="500"
+                data-locale="auto"></script>
+      <% end %>
+<% end %>

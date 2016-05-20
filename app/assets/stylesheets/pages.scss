@@ -19,6 +19,7 @@ $purple: #521262;
 $yellow: #f6c90e;
 $green: #07c1bf;
 $black: #282828;
+$black_trans: rgba(0, 0, 0, 0.5);
 
 html, body {
   height: 100%;
@@ -101,12 +102,11 @@ nav {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    background-color: rgha(0,0,0,0,7);
 
     h1{
       color: white;
       padding: 1rem;
-      font-size: 2.5rem;
+      font-size: 3rem;
     }
 
     p{
@@ -124,8 +124,11 @@ nav {
 
     width: 100%;
     position: absolute;
-    top: 70%;
+    // top: 70%;
+    bottom: 5px;
     text-align: center;
+    background-color: $black_trans;
+
 
 
     label {
@@ -150,10 +153,33 @@ nav {
   width: 60%;
   z-index: 1;
   margin: 0 20%;
+  overflow: hidden;
+
+  .actions input {
+    color: white;
+    background-color: $pink;
+    border: 1px solid $pink;
+    padding: 5px 40px;
+    font-size: 1rem;
+  }
+
+  .field {
+    margin: 10px;
+  }
+  .field #visitor_email,
+  #visitor_password,
+  #visitor_password_confirmation {
+    padding: 10px;
+    width: 70%;
+
+  }
 
 }
+
+
 .visitor_login_modal a,
-.visitor_signup_modal a{
+.visitor_signup_modal a,
+.become_guide_modal a {
   color: $black;
 }
 
@@ -170,6 +196,8 @@ nav {
   width: 60%;
   z-index: 2;
   margin: 0 20%;
+
+
 
 }
 

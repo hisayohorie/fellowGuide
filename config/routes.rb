@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :visitors, controllers: {sessions: "visitors/sessions", registrations: "visitors/registrations"}
   devise_for :guides, controllers: { sessions: "guides/sessions", registrations: "guides/registrations" }
 
+  resources :charges
 
   root 'pages#home'
 
