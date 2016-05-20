@@ -55,8 +55,8 @@ class BookingsController < ApplicationController
 
   def edit
     @guide = Guide.find(params[:guide_id])
-
     @booking = Booking.find(params[:id])
+    @experience_id = @booking.experience_id
   end
 
   def update
@@ -73,7 +73,7 @@ class BookingsController < ApplicationController
 
   private
   def booking_params
-    params.require(:booking).permit(:duration, :accepted, :experience_id,:date)
+    params.require(:booking).permit(:duration, :accepted, :paid, :experience_id, :date)
   end
 
   def experience_params

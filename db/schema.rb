@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160516215333) do
+ActiveRecord::Schema.define(version: 20160519212542) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer  "duration"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160516215333) do
     t.integer  "visitor_id"
     t.datetime "date"
     t.integer  "guide_id"
+    t.boolean  "paid"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(version: 20160516215333) do
     t.string   "photo"
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "paid"
   end
 
   add_index "visitors", ["reset_password_token"], name: "index_visitors_on_reset_password_token", unique: true

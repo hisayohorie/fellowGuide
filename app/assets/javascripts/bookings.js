@@ -24,14 +24,14 @@ $(document).on('ready page:load', function(e){
   //this is the mechanisim that makes sure the button happens
   var booking_button_has_fired = false
 
-  $('#booking_button input').on('click',function(e){
+  $('#booking_button').on('click',function(e){
     if (booking_button_has_fired === true) {
         booking_button_has_fired = false; // reset flag
         return; // let the event bubble away
     }
 
-
     e.preventDefault();
+
     e.stopPropagation();
     var guideId = $('#booking-page').attr('data-guide-id')
     var self = this;
@@ -67,7 +67,6 @@ $(document).on('ready page:load', function(e){
                   var sameOrAfterStart = daySelected.isAfter(acceptedBookingStart, 'hour');
                   //true if day in time before
                   var sameOrBeforeEnd = daySelected.isBefore(acceptedBookingEnd, 'hour');
-
                   try{
                     if (sameOrAfterStart && sameOrBeforeEnd) throw "booked"
                   }
