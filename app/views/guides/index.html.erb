@@ -11,8 +11,7 @@
     <%= range_field_tag(:rate, 60, in: 20..100, step: 1) %>
     <span>$100</span>
     <%= collection_radio_buttons("", :category_id, Category.all, :id, :name) %>
-
-
+  <% end %>
 
 <% @guides.each do |guide| %>
  <%= link_to guide_path(guide) do %>
