@@ -35,6 +35,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @booking.accepted = false
     @guide = Guide.find(params[:guide_id])
     @experience_id = experience_params[:experience_id]
   end
@@ -43,7 +44,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
 
-    redirect_to visitor_path(current_visitor)
+    redirect_to root_path
   end
 
   def show
@@ -62,6 +63,7 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @guide = Guide.find(params[:guide_id])
+
     if @booking.update_attributes(booking_params)
       flash[:notice] = "Booking updated!"
       redirect_to guide_path(@guide)
