@@ -78,7 +78,7 @@
         </article>
         <%= hidden_field_tag :booking_id, @booking.id%>
         <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="pk_test_iDuN2CYRlYAxnCfO3utwEmu1"
+                data-key="<%=ENV["stripe_publishable_key"]%>"
                 data-description="A month's subscription"
                 data-amount="500"
                 data-locale="auto"></script>
