@@ -1,5 +1,8 @@
 <div class = "container">
 <div class="visitor_profile">
+  <div class ="profilePic">
+  <%= image_tag @visitor.photo.thumb %><br/>
+  </div>
   <h1><%= @visitor.first_name%> <%= @visitor.last_name %></h1>
   <p><%= @visitor.email%></p>
   <%= link_to 'Edit Profile', edit_visitor_registration_path(@guide) %>
