@@ -1,45 +1,42 @@
+<div class = "container">
+<div class="visitor_profile">
+  <h1><%= @visitor.first_name%> <%= @visitor.last_name %></h1>
+  <p><%= @visitor.email%></p>
+  <%= link_to 'Edit Profile', edit_visitor_registration_path(@guide) %>
+</div>
 
-<h1><%= @visitor.first_name%> <%= @visitor.last_name %></h1>
-<p><%= @visitor.email%><p>
-
-<H3>
-    Tours Awaiting Payment
-</H3>
-<div>
-  <%@visitor.bookings.each do |booking| %>
-    <% if booking.accepted && !(booking.paid)%>
-      <div>
-        Guide : <%=booking.guide.first_name%> <%=booking.guide.last_name%>
-      </div>
-      <div>
-        Date: <%=booking.date%>
-      </div>
-      <div>
-        Length of Booking :<%=booking.duration%>
-      </div>
-      <%=link_to "#{booking.experience.name} - #{booking.date}", edit_guide_booking_path(booking.guide,booking) %>
-
+<div class="booked_tours">
+  <div class = "tours_waiting_payment">
+    <h3>
+        Tours Awaiting Payment:
+    </h3>
+      <%@visitor.bookings.each do |booking| %>
+      <% if booking.accepted && !(booking.paid)%>
+        <div>
+          Guide : <%=booking.guide.first_name%> <%=booking.guide.last_name%>
+          Date: <%=booking.date%>
+          Length of Booking :<%=booking.duration%>
+        </div>
+        <%=link_to "#{booking.experience.name} - #{booking.date}", edit_guide_booking_path(booking.guide,booking) %>
+      <%end%>
     <%end%>
-  <%end%>
-</div>
-<H3>
-    Tours  Booked and Paid for
-</H3>
-<div>
-  <%@visitor.bookings.each do |booking| %>
-    <% if booking.paid%>
+  </div>
 
-      <div>
-        Guide : <%=booking.guide.first_name%> <%=booking.guide.last_name%>
-      </div>
-      <div>
-        Date: <%=booking.date%>
-      </div>
-      <div>
-        Length of Booking :<%=booking.duration%>
-      </div>
-        <%=link_to 'Cancel', guide_booking_path(booking.guide , booking), method: :delete, data: {confirm: "Are you sure?"} %>
-<%end%>
-<%end%>
+  <div>
+    <h3>
+        Tours Booked and Paid for:
+    </h3>
+    <%@visitor.bookings.each do |booking| %>
+      <% if booking.paid%>
+
+        <div class = "tours_paid">
+          Guide : <%=booking.guide.first_name%> <%=booking.guide.last_name%>
+          Date: <%=booking.date%>
+          Length of Booking :<%=booking.duration%>
+          </div>
+          <%=link_to 'Cancel', guide_booking_path(booking.guide , booking), method: :delete, data: {confirm: "Are you sure?"} %>
+      <%end%>
+    <%end%>
+  </div>
 </div>
-<%= link_to 'Edit Profile', edit_visitor_registration_path(@guide) %>
+</div>

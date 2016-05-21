@@ -2,31 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-  background-color: $grey;
-  margin-top: 10rem;
-  letter-spacing: 5px;
-  color: white;
-}
-.visitor_login,
-.visitor_signup{
-  background-color: $pink;
-  width: 33%;
-  padding: 3rem;
-  text-align: center;
-  left: 50%;
-  margin: auto;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  .field {
-    width: 100%;
-    text-align: center;
-    position: relative;
-  }
-  .label {
-    margin-top: 10px;
 
+.visitor_profile {
+  border: 1px solid white;
+  width: 20vw;
+  padding: 20px;
+  display: inline-block;
+  margin: 20px;
+  position: relative;
+  vertical-align: top;
+  h1{
+    font-size: 1rem;
   }
+
+}
+
+.booked_tours {
+  border: 1px solid white;
+  width: 70vw;
+  padding: 20px;
+  display: inline-block;
+  margin: 20px;
+  height: 100%;
+  top: 0px;
+  position: relative;
+
+  h3{
+    font-size: 1rem;
+  }
+}
+
+.container{
+  font-size: 0;
+  line-height: 0;
 }
