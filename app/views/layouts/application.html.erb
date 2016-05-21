@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FellowGuide</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application'%>
-  <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js' %>
+  <head>
+    <title>FellowGuide</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application'%>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js' %>
 
-  <%= csrf_meta_tags %>
-</head>
+    <%= csrf_meta_tags %>
+  </head>
 <body>
-
-
   <nav>
     <div class= "home_nav">
       <%=link_to "HOME", root_path %>
@@ -18,6 +16,16 @@
     <ul>
 
       <button id ="become_guide">Guide</button>
+
+        <% if guide_signed_in? %>
+          <div class = "guide_nav">
+            <li><%= link_to "LOG OUT", destroy_guide_session_path, method: :delete %></li>
+          </div>
+          <div class = "guide_nav">
+            <li><%= link_to "EDIT PROFILE", edit_guide_registration_path(current_guide), method: :get %></li>
+          </div>
+        <% else %>
+        <% end %>
 
         <% if visitor_signed_in? %>
           <div class = "visitor_nav">
@@ -56,4 +64,3 @@
 <%= yield %>
 
 </body>
-</html>
