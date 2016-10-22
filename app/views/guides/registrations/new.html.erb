@@ -59,7 +59,7 @@
 
   <div class= "field">
   <%= f.label :language_ids, "For multiple selection, press command and click." %>
-  <%= f.select :language_ids, options_from_collection_for_select(Language.all, "id", "lang"),{}, { :multiple => true, :size =>10 }  %>
+  <%= f.select :language_ids, options_from_collection_for_select(Language.all, "id", "lang"),{}, { :multiple => true, :size => 5 }  %>
 </div>
 
   <div class="actions">
